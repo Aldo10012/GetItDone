@@ -25,6 +25,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.rootViewController = vc
         window?.makeKeyAndVisible()
         window?.windowScene = windowScene
+        
+        for family in UIFont.familyNames.sorted(){
+            let names = UIFont.fontNames(forFamilyName: family)
+            print("family: \(family), name: \(names)")
+        }
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

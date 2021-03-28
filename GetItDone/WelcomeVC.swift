@@ -15,7 +15,7 @@ class WelcomeVC: UIViewController {
         return view
     }()
     
-    let titleLabel = GDLabel(title: "GET IT DONE", size: 26, alignment: .center)
+    let titleLabel = GDLabel(title: "GET IT DONE", size: 26, alignment: .center, font: "Raleway-SemiBold")
     
     override func viewDidLoad() {
         super.viewDidLoad()

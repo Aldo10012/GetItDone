@@ -9,18 +9,15 @@ import Foundation
 import UIKit
 
 class GDLabel: UILabel{
-//    required init?(coder aDecoder: NSCoder) {
-//        fatalError("init(coder:) has not been implemented")
-//    }
     
-    init(title: String, color: UIColor = .white, size: CGFloat = 16, alignment: NSTextAlignment = .left, frame:CGRect = .zero){
+    init(title: String, color: UIColor = .white, size: CGFloat = 16, alignment: NSTextAlignment = .left, font: String = "Raleway-Regular", frame:CGRect = .zero){
         super.init(frame: frame)
         if frame == .zero{
             translatesAutoresizingMaskIntoConstraints = false
         }
         self.text = title
         self.textColor = color
-        self.font = UIFont.systemFont(ofSize: size)
+        self.font = UIFont.init(name: font, size: size)
         self.textAlignment = alignment
         
     }
