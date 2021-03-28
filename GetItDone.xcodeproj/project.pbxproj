@@ -7,17 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		631DEDE42611357A004247F7 /* GDLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 631DEDE32611357A004247F7 /* GDLabel.swift */; };
 		63DE42CD2610FF19006E3F58 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DE42CC2610FF19006E3F58 /* AppDelegate.swift */; };
 		63DE42CF2610FF19006E3F58 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DE42CE2610FF19006E3F58 /* SceneDelegate.swift */; };
 		63DE42D12610FF19006E3F58 /* WelcomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DE42D02610FF19006E3F58 /* WelcomeVC.swift */; };
 		63DE42D72610FF19006E3F58 /* GetItDone.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 63DE42D52610FF19006E3F58 /* GetItDone.xcdatamodeld */; };
 		63DE42D92610FF1A006E3F58 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 63DE42D82610FF1A006E3F58 /* Assets.xcassets */; };
 		63DE42DC2610FF1A006E3F58 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63DE42DA2610FF1A006E3F58 /* LaunchScreen.storyboard */; };
-		63DE42E926110A8B006E3F58 /* Gradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DE42E826110A8B006E3F58 /* Gradient.swift */; };
+		63DE42E926110A8B006E3F58 /* GDGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DE42E826110A8B006E3F58 /* GDGradient.swift */; };
 		63DE42ED26110E44006E3F58 /* UIColor-ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DE42EC26110E44006E3F58 /* UIColor-ext.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		631DEDE32611357A004247F7 /* GDLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GDLabel.swift; sourceTree = "<group>"; };
 		63DE42C92610FF19006E3F58 /* GetItDone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GetItDone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		63DE42CC2610FF19006E3F58 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		63DE42CE2610FF19006E3F58 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -26,7 +28,7 @@
 		63DE42D82610FF1A006E3F58 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		63DE42DB2610FF1A006E3F58 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		63DE42DD2610FF1A006E3F58 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		63DE42E826110A8B006E3F58 /* Gradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gradient.swift; sourceTree = "<group>"; };
+		63DE42E826110A8B006E3F58 /* GDGradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GDGradient.swift; sourceTree = "<group>"; };
 		63DE42EC26110E44006E3F58 /* UIColor-ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor-ext.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -41,6 +43,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		631DEDE22611350E004247F7 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				63DE42E826110A8B006E3F58 /* GDGradient.swift */,
+				631DEDE32611357A004247F7 /* GDLabel.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		63DE42C02610FF19006E3F58 = {
 			isa = PBXGroup;
 			children = (
@@ -63,12 +74,12 @@
 				63DE42CC2610FF19006E3F58 /* AppDelegate.swift */,
 				63DE42CE2610FF19006E3F58 /* SceneDelegate.swift */,
 				63DE42D02610FF19006E3F58 /* WelcomeVC.swift */,
+				631DEDE22611350E004247F7 /* View */,
 				63DE42EB26110DFC006E3F58 /* extensions */,
 				63DE42D82610FF1A006E3F58 /* Assets.xcassets */,
 				63DE42DA2610FF1A006E3F58 /* LaunchScreen.storyboard */,
 				63DE42DD2610FF1A006E3F58 /* Info.plist */,
 				63DE42D52610FF19006E3F58 /* GetItDone.xcdatamodeld */,
-				63DE42E826110A8B006E3F58 /* Gradient.swift */,
 			);
 			path = GetItDone;
 			sourceTree = "<group>";
@@ -150,10 +161,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				63DE42E926110A8B006E3F58 /* Gradient.swift in Sources */,
+				63DE42E926110A8B006E3F58 /* GDGradient.swift in Sources */,
 				63DE42ED26110E44006E3F58 /* UIColor-ext.swift in Sources */,
 				63DE42D12610FF19006E3F58 /* WelcomeVC.swift in Sources */,
 				63DE42D72610FF19006E3F58 /* GetItDone.xcdatamodeld in Sources */,
+				631DEDE42611357A004247F7 /* GDLabel.swift in Sources */,
 				63DE42CD2610FF19006E3F58 /* AppDelegate.swift in Sources */,
 				63DE42CF2610FF19006E3F58 /* SceneDelegate.swift in Sources */,
 			);

@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class Gradient: UIView {
+class GDGradient: UIView {
     
     var colors: [CGColor] = [
         UIColor.blueZero.cgColor,
