@@ -10,7 +10,13 @@ import UIKit
 
 class GDLabel: UILabel{
     
-    init(title: String, color: UIColor = .white, size: CGFloat = 16, alignment: NSTextAlignment = .left, font: String = "Raleway-Regular", frame:CGRect = .zero){
+    init(title: String,
+         color: UIColor = .white,
+         size: CGFloat = 16,
+         alignment: NSTextAlignment = .left,
+         font: String = "Raleway-Regular",
+         frame:CGRect = .zero)
+    {
         super.init(frame: frame)
         if frame == .zero{
             translatesAutoresizingMaskIntoConstraints = false

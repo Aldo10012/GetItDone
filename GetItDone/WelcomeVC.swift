@@ -16,6 +16,7 @@ class WelcomeVC: UIViewController {
     }()
     
     let titleLabel = GDLabel(title: "GET IT DONE", size: 26, alignment: .center, font: "Raleway-SemiBold")
+    let infoLabel = GDLabel(title: "WELCOME. GET IT DONE IS A TODO-LIST. \nA REALLY DOPE TODO-LIST", size: 14, alignment: .center)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,6 +44,15 @@ class WelcomeVC: UIViewController {
             titleLabel.centerXAnchor.constraint(equalTo: bg.centerXAnchor),
             titleLabel.topAnchor.constraint(equalTo: bg.topAnchor, constant: 60)
             
+        ])
+        
+        bg.addSubview(infoLabel)
+        infoLabel.numberOfLines = 2
+        NSLayoutConstraint.activate([
+            infoLabel.centerXAnchor.constraint(equalTo: bg.centerXAnchor),
+            infoLabel.centerYAnchor.constraint(equalTo: bg.centerYAnchor),
+            infoLabel.widthAnchor.constraint(equalToConstant: 300),
+            infoLabel.heightAnchor.constraint(equalToConstant: 40)
         ])
     }
 
