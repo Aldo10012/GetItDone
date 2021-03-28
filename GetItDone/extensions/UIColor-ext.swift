@@ -18,5 +18,13 @@ extension UIColor {
         
     }
     
+    static var grayZero: UIColor {
+        return UIColor(displayP3Red: (155/255), green: (155/255), blue: (155/255), alpha: 1)
+    }
+    
+    static var grayOne: UIColor {
+        return UIColor(displayP3Red: (66/255), green: (66/255), blue: (66/255), alpha: 1)
+    }
+    
 
 }

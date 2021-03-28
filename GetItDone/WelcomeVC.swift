@@ -18,6 +18,8 @@ class WelcomeVC: UIViewController {
     let titleLabel = GDLabel(title: "GET IT DONE", size: 26, alignment: .center, font: "Raleway-SemiBold")
     let infoLabel = GDLabel(title: "WELCOME. GET IT DONE IS A TODO-LIST. \nA REALLY DOPE TODO-LIST", size: 14, alignment: .center)
     
+    let nextButton = GDButton(title: "START WINNING")
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -53,6 +55,14 @@ class WelcomeVC: UIViewController {
             infoLabel.centerYAnchor.constraint(equalTo: bg.centerYAnchor),
             infoLabel.widthAnchor.constraint(equalToConstant: 300),
             infoLabel.heightAnchor.constraint(equalToConstant: 40)
+        ])
+        
+        bg.addSubview(nextButton)
+        NSLayoutConstraint.activate([
+            nextButton.centerXAnchor.constraint(equalTo: bg.centerXAnchor),
+            nextButton.bottomAnchor.constraint(equalTo: bg.bottomAnchor, constant: -60),
+            nextButton.widthAnchor.constraint(equalToConstant: 200),
+            nextButton.heightAnchor.constraint(equalToConstant: 50)
         ])
     }
 
