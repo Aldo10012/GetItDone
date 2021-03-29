@@ -8,23 +8,26 @@
 import UIKit
 
 class ListVC: UIViewController {
+    
+    let header = GDHeaderView(title: "Stuff to get done", subtitle: "4 left")
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        view.backgroundColor = .systemTeal
+        view.backgroundColor = .white
+        setUpViews()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func setUpViews(){
+        view.addSubview(header)
+        NSLayoutConstraint.activate([
+            header.topAnchor.constraint(equalTo: view.topAnchor),
+            header.heightAnchor.constraint(equalToConstant: 120),
+            header.leftAnchor.constraint(equalTo: view.leftAnchor),
+            header.rightAnchor.constraint(equalTo: view.rightAnchor)
+        ])
     }
-    */
+
 
 }

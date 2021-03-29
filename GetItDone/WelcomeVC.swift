@@ -18,7 +18,7 @@ class WelcomeVC: UIViewController {
     let titleLabel = GDLabel(title: "GET IT DONE", size: 26, alignment: .center, font: "Raleway-SemiBold")
     let infoLabel = GDLabel(title: "WELCOME. GET IT DONE IS A TODO-LIST. \nA REALLY DOPE TODO-LIST", size: 14, alignment: .center)
     
-    let nextButton = GDButton(title: "START WINNING")
+    let nextButton = GDButton(title: "START WINNING", type: .roundedtext )
     
     @objc func handleNext() {
         UIView.animate(withDuration: 0.1, delay: 0, usingSpringWithDamping: 0.9, initialSpringVelocity: 1, options: .curveEaseIn, animations: {

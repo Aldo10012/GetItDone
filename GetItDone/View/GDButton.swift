@@ -11,13 +11,28 @@ import UIKit
 class GDButton: UIButton {
     var title: String!
     
-    init(title: String = "Next", frame: CGRect = .zero){
+    init(title: String = "Next", frame: CGRect = .zero, type: ButtonOptions = .roundedtext){
         super.init(frame: frame)
         if frame == .zero{
             translatesAutoresizingMaskIntoConstraints = false
         }
-        self.title = title
-        phaseTwo()
+        
+        switch type {
+            case .roundedtext:
+                self.title = title
+                phaseTwo()
+                
+            case .squareIcon:
+                break
+                
+            case .squareText:
+                break
+                
+            default: break
+        }
+        
+        
+
     }
     
     func phaseTwo(){
