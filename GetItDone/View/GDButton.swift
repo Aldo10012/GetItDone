@@ -10,6 +10,7 @@ import UIKit
 
 class GDButton: UIButton {
     var title: String!
+    var type: ButtonOptions!
     
     init(title: String = "Next", frame: CGRect = .zero, type: ButtonOptions = .roundedtext){
         super.init(frame: frame)
@@ -17,32 +18,46 @@ class GDButton: UIButton {
             translatesAutoresizingMaskIntoConstraints = false
         }
         
-        switch type {
-            case .roundedtext:
-                self.title = title
-                phaseTwo()
-                
-            case .squareIcon:
-                break
-                
-            case .squareText:
-                break
-                
-            default: break
-        }
-        
-        
+        self.title = title
+        self.type = type
+        phaseTwo()
 
     }
     
     func phaseTwo(){
         self.setTitle(self.title, for:.normal)
         self.setTitleColor(.grayZero, for: .normal)
-        self.layer.cornerRadius = 14
         self.backgroundColor = .white
+        
         if let titlelabel = self.titleLabel{
             titlelabel.font = UIFont.init(name: "Raleway-Regular", size: 18)
         }
+        
+        switch self.type {
+            case ButtonOptions.roundedtext:
+                roundedText()
+                
+            case ButtonOptions.squareIcon:
+                self.squareIcon()
+                
+            case ButtonOptions.squareText:
+                break
+                
+            default: break
+        }
+    }
+    
+    func roundedText(){
+        self.layer.cornerRadius = 14
+    }
+    
+    func squareIcon(){
+        self.backgroundColor = .white
+        if let titlelabel = self.titleLabel{
+            titlelabel.font = UIFont.init(name: "Raleway-Regular", size: 35)
+        }
+        self.setTitle("+", for: .normal)
+        self.setImage(UIImage(named: "add-icon"), for: .normal)
     }
     
     required init?(coder: NSCoder) {

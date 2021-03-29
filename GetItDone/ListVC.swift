@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ListVC: UIViewController {
+class ListVC: UIViewController, GDHeaderDelegate {
     
     let header = GDHeaderView(title: "Stuff to get done", subtitle: "4 left")
 
@@ -27,7 +27,11 @@ class ListVC: UIViewController {
             header.leftAnchor.constraint(equalTo: view.leftAnchor),
             header.rightAnchor.constraint(equalTo: view.rightAnchor)
         ])
+        
+        header.delegate = self
     }
 
-
+    func addItem() {
+        print("trying to add item")
+    }
 }
