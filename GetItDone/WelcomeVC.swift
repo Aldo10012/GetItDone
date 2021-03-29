@@ -8,7 +8,7 @@
 import UIKit
 
 class WelcomeVC: UIViewController {
-
+    
     let bg: UIView = {
         let view = GDGradient()
         view.layer.cornerRadius = 25
@@ -20,12 +20,23 @@ class WelcomeVC: UIViewController {
     
     let nextButton = GDButton(title: "START WINNING")
     
+    @objc func handleNext() {
+        UIView.animate(withDuration: 0.1, delay: 0, usingSpringWithDamping: 0.9, initialSpringVelocity: 1, options: .curveEaseIn, animations: {
+            self.nextButton.transform = CGAffineTransform(scaleX: 0.92, y: 0.92)
+        }) { (_) in
+            UIView.animate(withDuration: 0.2, delay: 0, usingSpringWithDamping: 0.9, initialSpringVelocity: 1, options: .curveEaseIn, animations: {
+                self.nextButton.transform = CGAffineTransform(scaleX: 1, y: 1)
+            }) { (_) in
+                //self.present(ListVC(), animated: true, completion: nil)
+                UIApplication.shared.windows.first?.rootViewController = ListVC()
+            }
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         view.backgroundColor = .white
-        
-        
         
         setUpViews()
     }
@@ -64,8 +75,9 @@ class WelcomeVC: UIViewController {
             nextButton.widthAnchor.constraint(equalToConstant: 200),
             nextButton.heightAnchor.constraint(equalToConstant: 50)
         ])
+        nextButton.addTarget(self, action: #selector(self.handleNext), for: .touchUpInside)
     }
-
-
+    
+    
 }
 

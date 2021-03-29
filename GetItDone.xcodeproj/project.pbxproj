@@ -11,6 +11,7 @@
 		631DEDEC26113D45004247F7 /* Raleway-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 631DEDEB26113D45004247F7 /* Raleway-Regular.ttf */; };
 		631DEDEF2611404E004247F7 /* Raleway-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 631DEDEE2611404E004247F7 /* Raleway-SemiBold.ttf */; };
 		631DEDF226114723004247F7 /* GDButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 631DEDF126114723004247F7 /* GDButton.swift */; };
+		631DEDF52611518A004247F7 /* ListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 631DEDF42611518A004247F7 /* ListVC.swift */; };
 		63DE42CD2610FF19006E3F58 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DE42CC2610FF19006E3F58 /* AppDelegate.swift */; };
 		63DE42CF2610FF19006E3F58 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DE42CE2610FF19006E3F58 /* SceneDelegate.swift */; };
 		63DE42D12610FF19006E3F58 /* WelcomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DE42D02610FF19006E3F58 /* WelcomeVC.swift */; };
@@ -26,6 +27,7 @@
 		631DEDEB26113D45004247F7 /* Raleway-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-Regular.ttf"; sourceTree = "<group>"; };
 		631DEDEE2611404E004247F7 /* Raleway-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-SemiBold.ttf"; sourceTree = "<group>"; };
 		631DEDF126114723004247F7 /* GDButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GDButton.swift; sourceTree = "<group>"; };
+		631DEDF42611518A004247F7 /* ListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListVC.swift; sourceTree = "<group>"; };
 		63DE42C92610FF19006E3F58 /* GetItDone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GetItDone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		63DE42CC2610FF19006E3F58 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		63DE42CE2610FF19006E3F58 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -87,12 +89,13 @@
 		63DE42CB2610FF19006E3F58 /* GetItDone */ = {
 			isa = PBXGroup;
 			children = (
-				631DEDEA26113BF1004247F7 /* Fonts */,
 				63DE42CC2610FF19006E3F58 /* AppDelegate.swift */,
 				63DE42CE2610FF19006E3F58 /* SceneDelegate.swift */,
 				63DE42D02610FF19006E3F58 /* WelcomeVC.swift */,
+				631DEDF42611518A004247F7 /* ListVC.swift */,
 				631DEDE22611350E004247F7 /* View */,
 				63DE42EB26110DFC006E3F58 /* extensions */,
+				631DEDEA26113BF1004247F7 /* Fonts */,
 				63DE42D82610FF1A006E3F58 /* Assets.xcassets */,
 				63DE42DA2610FF1A006E3F58 /* LaunchScreen.storyboard */,
 				63DE42DD2610FF1A006E3F58 /* Info.plist */,
@@ -183,6 +186,7 @@
 				631DEDF226114723004247F7 /* GDButton.swift in Sources */,
 				63DE42E926110A8B006E3F58 /* GDGradient.swift in Sources */,
 				63DE42ED26110E44006E3F58 /* UIColor-ext.swift in Sources */,
+				631DEDF52611518A004247F7 /* ListVC.swift in Sources */,
 				63DE42D12610FF19006E3F58 /* WelcomeVC.swift in Sources */,
 				63DE42D72610FF19006E3F58 /* GetItDone.xcdatamodeld in Sources */,
 				631DEDE42611357A004247F7 /* GDLabel.swift in Sources */,
