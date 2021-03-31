@@ -12,9 +12,9 @@ class NewItemPopup: GDGradient {
     let add = GDButton(title: "   add   ", type: .roundedtext, radius: 5)
     let textField = GDTextField(placeholder: "Go buy IKEA frame", radius: 5)
 
-    override init(frame: CGRect){
-        super.init(frame: frame )
-        self.layer.cornerRadius = 15
+    override init(frame: CGRect = .zero, radius: CGFloat = 15){
+        super.init(frame: frame, radius: radius)
+        self.layer.cornerRadius = radius
         
         addViews(15)
     }
@@ -43,7 +43,7 @@ class NewItemPopup: GDGradient {
             textField.leftAnchor.constraint(equalTo: leftAnchor, constant: inset),
             textField.rightAnchor.constraint(equalTo: rightAnchor, constant: inset * -1),
             textField.topAnchor.constraint(equalTo: cancle.bottomAnchor, constant: 8),
-            textField.heightAnchor.constraint(equalToConstant: 32)
+            textField.heightAnchor.constraint(equalToConstant: 28)
         
         ])
     }

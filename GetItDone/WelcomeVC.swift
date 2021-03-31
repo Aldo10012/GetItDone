@@ -9,12 +9,7 @@ import UIKit
 
 class WelcomeVC: UIViewController {
     
-    let bg: UIView = {
-        let view = GDGradient()
-        view.layer.cornerRadius = 25
-        return view
-    }()
-    
+    let bg = GDGradient(radius: 25)
     let titleLabel = GDLabel(title: "GET IT DONE", size: 26, alignment: .center, font: "Raleway-SemiBold")
     let infoLabel = GDLabel(title: "WELCOME. GET IT DONE IS A TODO-LIST. \nA REALLY DOPE TODO-LIST", size: 14, alignment: .center)
     

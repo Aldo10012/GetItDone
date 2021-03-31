@@ -15,8 +15,7 @@ class GDGradient: UIView {
         UIColor.blueOne.cgColor
     ]
 
-    
-    override init(frame: CGRect = .zero){
+    init(frame: CGRect = .zero, radius: CGFloat = 0){
         super.init(frame: frame)
         
         if frame == .zero{
@@ -26,6 +25,7 @@ class GDGradient: UIView {
             layer.colors = self.colors
             layer.locations = [0.0, 1.2]
         }
+        self.layer.cornerRadius = radius
         
         
     }
