@@ -26,16 +26,24 @@ class NewItemPopup: GDGradient {
             cancle.leftAnchor.constraint(equalTo: leftAnchor , constant: inset),
             cancle.topAnchor.constraint(equalTo: topAnchor, constant: inset ),
             cancle.heightAnchor.constraint(equalToConstant: 20),
-            
         ])
+        cancle.addTarget(self, action: #selector(self.handleCancel), for: .touchUpInside)
         
         addSubview(add)
         NSLayoutConstraint.activate([
             add.rightAnchor.constraint(equalTo: rightAnchor , constant: (inset * -1)),
             add.topAnchor.constraint(equalTo: topAnchor, constant: inset ),
             add.heightAnchor.constraint(equalToConstant: 20),
-            
         ])
+        add.addTarget(self, action: #selector(self.handleAdd), for: .touchUpInside)
+    }
+    
+    @objc func handleCancel(){
+        print("clicked cancle")
+    }
+    
+    @objc func handleAdd(){
+        print("clicked add")
     }
     
     required init?(coder: NSCoder) {
