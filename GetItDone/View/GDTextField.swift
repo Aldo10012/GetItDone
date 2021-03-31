@@ -18,6 +18,7 @@ class GDTextField: UITextField {
         self.backgroundColor = .white
         self.layer.cornerRadius = radius
         self.inset = UIEdgeInsets(top: 0, left: inset, bottom: 0, right: inset)
+        self.textColor = .grayZero 
     }
     
     override func placeholderRect(forBounds bounds: CGRect) -> CGRect {
