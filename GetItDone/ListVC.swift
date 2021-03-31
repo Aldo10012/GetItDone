@@ -10,6 +10,7 @@ import UIKit
 class ListVC: UIViewController, GDHeaderDelegate {
     
     let header = GDHeaderView(title: "Stuff to get done", subtitle: "4 left")
+    let popup = NewItemPopup()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +28,15 @@ class ListVC: UIViewController, GDHeaderDelegate {
             header.leftAnchor.constraint(equalTo: view.leftAnchor),
             header.rightAnchor.constraint(equalTo: view.rightAnchor)
         ])
+        
+        view.addSubview(popup)
+        NSLayoutConstraint.activate([
+            popup.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            popup.heightAnchor.constraint(equalToConstant: 80),
+            popup.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20),
+            popup.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20)
+        ])
+        
         
         header.delegate = self
     }
