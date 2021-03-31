@@ -7,11 +7,11 @@
 
 import UIKit
 
-class ListVC: UIViewController, GDHeaderDelegate {
+class ListVC: UIViewController, GDHeaderDelegate  {
     
     let header = GDHeaderView(title: "Stuff to get done", subtitle: "4 left")
     let popup = NewItemPopup()
-    var keyboardHeight:CGFloat = 0
+    var keyboardHeight:CGFloat = 333
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,17 +32,7 @@ class ListVC: UIViewController, GDHeaderDelegate {
         let keyboardSize = (notification.userInfo![UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue.size
         self.keyboardHeight = keyboardSize.height
         
-        UIView.animate(
-            withDuration: 0.1,
-            delay: 0,
-            usingSpringWithDamping: 0.85,
-            initialSpringVelocity: 2,
-            options: .curveEaseIn,
-            animations: {
-                self.popup.transform = CGAffineTransform(translationX: 0, y: -self.keyboardHeight)
-            },
-            completion: nil
-        )
+        
 
     }
     
@@ -63,11 +53,28 @@ class ListVC: UIViewController, GDHeaderDelegate {
             popup.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20)
         ])
         
-        
+        popup.textField.delegate = self
         header.delegate = self
     }
     
     func addItem() {
         print("trying to add item")
+    }
+}
+
+extension ListVC: UITextFieldDelegate{
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        print("textfield did begin editing \n\n")
+        UIView.animate(
+            withDuration: 0.6,
+            delay: 0,
+            usingSpringWithDamping: 0.85,
+            initialSpringVelocity: 2,
+            options: .curveEaseIn,
+            animations: {
+                self.popup.transform = CGAffineTransform(translationX: 0, y: -self.keyboardHeight)
+            },
+            completion: nil
+        )
     }
 }
