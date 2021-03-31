@@ -15,7 +15,7 @@
 		634E206A26125E3B00AA8B08 /* GDHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634E206926125E3B00AA8B08 /* GDHeaderView.swift */; };
 		634E206D261269CE00AA8B08 /* optionSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634E206C261269CE00AA8B08 /* optionSet.swift */; };
 		634E2070261281BB00AA8B08 /* Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634E206F261281BB00AA8B08 /* Protocol.swift */; };
-		6366FA422614FDC300DBC179 /* NewItemPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6366FA412614FDC300DBC179 /* NewItemPopup.swift */; };
+		6366FA422614FDC300DBC179 /* GDNewItemPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6366FA412614FDC300DBC179 /* GDNewItemPopup.swift */; };
 		6366FA452615096800DBC179 /* GDTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6366FA442615096800DBC179 /* GDTextField.swift */; };
 		6366FA4C26150A7600DBC179 /* UiView-ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6366FA4B26150A7600DBC179 /* UiView-ext.swift */; };
 		63DE42CD2610FF19006E3F58 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DE42CC2610FF19006E3F58 /* AppDelegate.swift */; };
@@ -37,7 +37,7 @@
 		634E206926125E3B00AA8B08 /* GDHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GDHeaderView.swift; sourceTree = "<group>"; };
 		634E206C261269CE00AA8B08 /* optionSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = optionSet.swift; sourceTree = "<group>"; };
 		634E206F261281BB00AA8B08 /* Protocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocol.swift; sourceTree = "<group>"; };
-		6366FA412614FDC300DBC179 /* NewItemPopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewItemPopup.swift; sourceTree = "<group>"; };
+		6366FA412614FDC300DBC179 /* GDNewItemPopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GDNewItemPopup.swift; sourceTree = "<group>"; };
 		6366FA442615096800DBC179 /* GDTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GDTextField.swift; sourceTree = "<group>"; };
 		6366FA4B26150A7600DBC179 /* UiView-ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UiView-ext.swift"; sourceTree = "<group>"; };
 		63DE42C92610FF19006E3F58 /* GetItDone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GetItDone.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -70,7 +70,7 @@
 				631DEDE32611357A004247F7 /* GDLabel.swift */,
 				631DEDF126114723004247F7 /* GDButton.swift */,
 				634E206926125E3B00AA8B08 /* GDHeaderView.swift */,
-				6366FA412614FDC300DBC179 /* NewItemPopup.swift */,
+				6366FA412614FDC300DBC179 /* GDNewItemPopup.swift */,
 				6366FA442615096800DBC179 /* GDTextField.swift */,
 			);
 			path = View;
@@ -214,7 +214,7 @@
 				631DEDE42611357A004247F7 /* GDLabel.swift in Sources */,
 				63DE42CD2610FF19006E3F58 /* AppDelegate.swift in Sources */,
 				63DE42CF2610FF19006E3F58 /* SceneDelegate.swift in Sources */,
-				6366FA422614FDC300DBC179 /* NewItemPopup.swift in Sources */,
+				6366FA422614FDC300DBC179 /* GDNewItemPopup.swift in Sources */,
 				634E2070261281BB00AA8B08 /* Protocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

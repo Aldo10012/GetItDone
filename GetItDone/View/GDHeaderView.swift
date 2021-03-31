@@ -63,7 +63,7 @@ class GDHeaderView: UIView{
     @objc func handleAddButton(){
         // print("trying to handle add button")
         if let delegate = self.delegate{
-            delegate.addItem()
+            delegate.openAddItemPopup()
         }else { print("error") }
     }
     

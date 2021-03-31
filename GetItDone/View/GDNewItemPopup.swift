@@ -7,10 +7,11 @@
 
 import UIKit
 
-class NewItemPopup: GDGradient {
+class GDNewItemPopup: GDGradient {
     let cancle = GDButton(title: "   cancle   ", type: .roundedtext, radius: 5)
     let add = GDButton(title: "   add   ", type: .roundedtext, radius: 5)
     let textField = GDTextField(placeholder: "Go buy IKEA frame", radius: 5)
+    var delegate: GDNewItemDelegate?
 
     override init(frame: CGRect = .zero, radius: CGFloat = 15){
         super.init(frame: frame, radius: radius)
@@ -53,7 +54,11 @@ class NewItemPopup: GDGradient {
     }
     
     @objc func handleAdd(){
-        print("clicked add")
+        if let delegate = self.delegate{
+            if let text = self.textField.text{
+                delegate.addItemToList(text: text )
+            }
+        }
     }
     
     required init?(coder: NSCoder) {

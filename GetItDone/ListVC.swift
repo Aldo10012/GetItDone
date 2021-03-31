@@ -10,7 +10,7 @@ import UIKit
 class ListVC: UIViewController, GDHeaderDelegate  {
     
     let header = GDHeaderView(title: "Stuff to get done", subtitle: "4 left")
-    let popup = NewItemPopup()
+    let popup = GDNewItemPopup()
     var keyboardHeight:CGFloat = 333
     
     override func viewDidLoad() {
@@ -54,17 +54,18 @@ class ListVC: UIViewController, GDHeaderDelegate  {
         ])
         
         popup.textField.delegate = self
+        popup.delegate = self
         header.delegate = self
     }
     
-    func addItem() {
+    func openAddItemPopup() {
         print("trying to add item")
     }
 }
 
 extension ListVC: UITextFieldDelegate{
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        print("textfield did begin editing \n\n")
+        print("textfield did begin editing")
         UIView.animate(
             withDuration: 0.6,
             delay: 0,
@@ -76,5 +77,15 @@ extension ListVC: UITextFieldDelegate{
             },
             completion: nil
         )
+    }
+}
+
+extension ListVC: GDNewItemDelegate{
+    func addItemToPopup() {
+        print("trying to open item popup view")
+    }
+    
+    func addItemToList(text: String){
+        print("text in textfield is: \(text)")
     }
 }
