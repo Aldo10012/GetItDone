@@ -32,7 +32,7 @@ class ListVC: UIViewController, GDHeaderDelegate {
         view.addSubview(popup)
         NSLayoutConstraint.activate([
             popup.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            popup.heightAnchor.constraint(equalToConstant: 80),
+            popup.heightAnchor.constraint(equalToConstant: 100),
             popup.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20),
             popup.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20)
         ])
