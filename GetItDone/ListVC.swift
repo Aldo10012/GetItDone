@@ -65,19 +65,16 @@ class ListVC: UIViewController, GDHeaderDelegate  {
 
 extension ListVC: UITextFieldDelegate{
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        print("textfield did begin editing")
-        UIView.animate(
-            withDuration: 0.6,
-            delay: 0,
-            usingSpringWithDamping: 0.85,
-            initialSpringVelocity: 2,
-            options: .curveEaseIn,
-            animations: {
-                self.popup.transform = CGAffineTransform(translationX: 0, y: -self.keyboardHeight)
-            },
-            completion: nil
-        )
+        popup.animateView(transform: CGAffineTransform(translationX: 0, y: -keyboardHeight), duration: 0.5)
     }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        popup.animateView(transform: CGAffineTransform(translationX: 0, y: 0), duration: 0.6)
+        popup.textField.text = ""
+    }
+    
+    
+    
 }
 
 extension ListVC: GDNewItemDelegate{

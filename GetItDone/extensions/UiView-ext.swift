@@ -13,4 +13,18 @@ extension UIView {
             translatesAutoresizingMaskIntoConstraints = false
         }
     }
+    
+    func animateView(transform: CGAffineTransform, duration: TimeInterval){
+        UIView.animate(
+            withDuration: duration,
+            delay: 0,
+            usingSpringWithDamping: 0.85,
+            initialSpringVelocity: 2,
+            options: .curveEaseIn,
+            animations: {
+                self.transform =  transform
+            },
+            completion: nil
+        )
+    }
 }
