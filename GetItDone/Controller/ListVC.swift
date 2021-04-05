@@ -12,6 +12,10 @@ class ListVC: UIViewController, GDHeaderDelegate  {
     let header = GDHeaderView(title: "Stuff to get done", subtitle: "4 left")
     let popup = GDNewItemPopup()
     var keyboardHeight:CGFloat = 333
+    let bg = GDGradient(radius: 25)
+    let listTable = GDTableView()
+    
+    let tbInset:CGFloat = 16
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,6 +49,22 @@ class ListVC: UIViewController, GDHeaderDelegate  {
             header.rightAnchor.constraint(equalTo: view.rightAnchor)
         ])
         
+        view.addSubview(bg)
+        NSLayoutConstraint.activate([
+            bg.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20),
+            bg.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20),
+            bg.topAnchor.constraint(equalTo: header.bottomAnchor, constant: 20),
+            bg.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -120)
+        ])
+        
+        bg.addSubview(listTable)
+        NSLayoutConstraint.activate([
+            listTable.leftAnchor.constraint(equalTo: bg.leftAnchor, constant: tbInset),
+            listTable.topAnchor.constraint(equalTo: bg.topAnchor, constant: tbInset),
+            listTable.bottomAnchor.constraint(equalTo: bg.bottomAnchor, constant: tbInset * -1),
+            listTable.rightAnchor.constraint(equalTo: bg.rightAnchor, constant: tbInset * -1)
+        ])
+        
         view.addSubview(popup)
         NSLayoutConstraint.activate([
             popup.bottomAnchor.constraint(equalTo: view.bottomAnchor),
@@ -53,6 +73,7 @@ class ListVC: UIViewController, GDHeaderDelegate  {
             popup.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20)
         ])
         
+
         popup.textField.delegate = self
         popup.delegate = self
         header.delegate = self
@@ -86,3 +107,5 @@ extension ListVC: GDNewItemDelegate{
         print("text in textfield is: \(text)")
     }
 }
+
+
