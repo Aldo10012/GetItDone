@@ -16,7 +16,9 @@ class ListVC: UIViewController, GDHeaderDelegate  {
     let listTable = GDTableView()
     let CELL_ID = "cell_id"
     
-    let tbInset:CGFloat = 16
+    var listData = ["first todo", "second todo", "Third todo", "Forth todo"]
+    
+    let tbInset:CGFloat = 10
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -80,7 +82,7 @@ class ListVC: UIViewController, GDHeaderDelegate  {
         header.delegate = self
         listTable.delegate = self
         listTable.dataSource = self
-        listTable.register(UITableViewCell.self, forCellReuseIdentifier: CELL_ID)
+        listTable.register(GDListCell.self, forCellReuseIdentifier: CELL_ID)
     }
     
     func openAddItemPopup() {
@@ -114,13 +116,13 @@ extension ListVC: GDNewItemDelegate{
 
 extension ListVC: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return self.listData.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: CELL_ID, for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: CELL_ID, for: indexPath) as! GDListCell
         //let cell = tableView.cellForRow(at: indexPath) as! UITableViewCell
-        cell.textLabel?.text = "Hello"
+        cell.textLabel?.text = self.listData[indexPath.row]
         return cell
     }
     
