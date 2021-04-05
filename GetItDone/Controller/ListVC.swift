@@ -14,6 +14,7 @@ class ListVC: UIViewController, GDHeaderDelegate  {
     var keyboardHeight:CGFloat = 333
     let bg = GDGradient(radius: 25)
     let listTable = GDTableView()
+    let CELL_ID = "cell_id"
     
     let tbInset:CGFloat = 16
     
@@ -77,6 +78,9 @@ class ListVC: UIViewController, GDHeaderDelegate  {
         popup.textField.delegate = self
         popup.delegate = self
         header.delegate = self
+        listTable.delegate = self
+        listTable.dataSource = self
+        listTable.register(UITableViewCell.self, forCellReuseIdentifier: CELL_ID)
     }
     
     func openAddItemPopup() {
@@ -108,4 +112,17 @@ extension ListVC: GDNewItemDelegate{
     }
 }
 
-
+extension ListVC: UITableViewDelegate, UITableViewDataSource{
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 3
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: CELL_ID, for: indexPath)
+        //let cell = tableView.cellForRow(at: indexPath) as! UITableViewCell
+        cell.textLabel?.text = "Hello"
+        return cell
+    }
+    
+    
+}
