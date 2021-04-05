@@ -10,6 +10,7 @@ import UIKit
 class GDListCell: UITableViewCell{
     
     let titleLabel = GDLabel(title: "ToDo", color: .white, size: 20, font: "Raleway-SemiBold")
+    let box = GDCheckBox()
     
     var toDo: ToDo? {
         didSet{
@@ -35,11 +36,21 @@ class GDListCell: UITableViewCell{
     }
     
     func setupViews(){
+        addSubview(box)
+        NSLayoutConstraint.activate([
+            box.leftAnchor.constraint(equalTo: leftAnchor, constant: 0),
+            box.centerYAnchor.constraint(equalTo: centerYAnchor),
+            box.heightAnchor.constraint(equalToConstant: 20),
+            box.widthAnchor.constraint(equalToConstant: 20)
+        ])
+        
         addSubview(titleLabel)
         NSLayoutConstraint.activate([
-            titleLabel.leftAnchor.constraint(equalTo: leftAnchor, constant: 10),
-            titleLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
+            titleLabel.leftAnchor.constraint(equalTo: box.rightAnchor, constant: 20),
+            titleLabel.centerYAnchor.constraint(equalTo: centerYAnchor)
         ])
+        
+        
     }
     
     required init?(coder: NSCoder) {

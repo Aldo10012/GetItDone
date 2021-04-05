@@ -18,7 +18,7 @@ class ListVC: UIViewController, GDHeaderDelegate  {
     
     var listData: [ToDo] = [ToDo]()
     
-    let tbInset:CGFloat = 10
+    let tbInset:CGFloat = 25
     
     override func viewDidLoad() {
         super.viewDidLoad()
