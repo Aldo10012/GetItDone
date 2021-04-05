@@ -14,6 +14,7 @@
 		631DEDF52611518A004247F7 /* ListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 631DEDF42611518A004247F7 /* ListVC.swift */; };
 		634A44A8261B9DDB00F142BA /* GDTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634A44A7261B9DDB00F142BA /* GDTableView.swift */; };
 		634A44AB261BAF2800F142BA /* GDListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634A44AA261BAF2800F142BA /* GDListCell.swift */; };
+		634A44B5261BB15400F142BA /* toDo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634A44B4261BB15400F142BA /* toDo.swift */; };
 		634E206A26125E3B00AA8B08 /* GDHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634E206926125E3B00AA8B08 /* GDHeaderView.swift */; };
 		634E206D261269CE00AA8B08 /* optionSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634E206C261269CE00AA8B08 /* optionSet.swift */; };
 		634E2070261281BB00AA8B08 /* Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634E206F261281BB00AA8B08 /* Protocol.swift */; };
@@ -38,6 +39,7 @@
 		631DEDF42611518A004247F7 /* ListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListVC.swift; sourceTree = "<group>"; };
 		634A44A7261B9DDB00F142BA /* GDTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GDTableView.swift; sourceTree = "<group>"; };
 		634A44AA261BAF2800F142BA /* GDListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GDListCell.swift; sourceTree = "<group>"; };
+		634A44B4261BB15400F142BA /* toDo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = toDo.swift; sourceTree = "<group>"; };
 		634E206926125E3B00AA8B08 /* GDHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GDHeaderView.swift; sourceTree = "<group>"; };
 		634E206C261269CE00AA8B08 /* optionSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = optionSet.swift; sourceTree = "<group>"; };
 		634E206F261281BB00AA8B08 /* Protocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocol.swift; sourceTree = "<group>"; };
@@ -91,6 +93,14 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
+		634A44AE261BB0A600F142BA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				634A44B4261BB15400F142BA /* toDo.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		6366FA4F2615625200DBC179 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -121,6 +131,7 @@
 			children = (
 				63DE42CC2610FF19006E3F58 /* AppDelegate.swift */,
 				63DE42CE2610FF19006E3F58 /* SceneDelegate.swift */,
+				634A44AE261BB0A600F142BA /* Model */,
 				6366FA4F2615625200DBC179 /* Controller */,
 				631DEDE22611350E004247F7 /* View */,
 				63DE42EB26110DFC006E3F58 /* extensions */,
@@ -224,6 +235,7 @@
 				6366FA452615096800DBC179 /* GDTextField.swift in Sources */,
 				634E206A26125E3B00AA8B08 /* GDHeaderView.swift in Sources */,
 				63DE42D12610FF19006E3F58 /* WelcomeVC.swift in Sources */,
+				634A44B5261BB15400F142BA /* toDo.swift in Sources */,
 				634E206D261269CE00AA8B08 /* optionSet.swift in Sources */,
 				63DE42D72610FF19006E3F58 /* GetItDone.xcdatamodeld in Sources */,
 				634A44A8261B9DDB00F142BA /* GDTableView.swift in Sources */,

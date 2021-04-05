@@ -16,14 +16,32 @@ class ListVC: UIViewController, GDHeaderDelegate  {
     let listTable = GDTableView()
     let CELL_ID = "cell_id"
     
-    var listData = ["first todo", "second todo", "Third todo", "Forth todo"]
+    var listData: [ToDo] = [ToDo]()
     
     let tbInset:CGFloat = 10
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Do any additional setup after loading the view.
+        listData = [
+            ToDo(id: 0, title: "Make bed", status: false),
+            ToDo(id: 1, title: "Do homework", status: false),
+            ToDo(id: 2, title: "workout", status: false),
+            ToDo(id: 3, title: "cook", status: false),
+            ToDo(id: 4, title: "Make bed", status: false),
+            ToDo(id: 5, title: "Do homework", status: false),
+            ToDo(id: 6, title: "workout", status: false),
+            ToDo(id: 7, title: "cook", status: false),
+            ToDo(id: 0, title: "Make bed", status: false),
+            ToDo(id: 1, title: "Do homework", status: false),
+            ToDo(id: 2, title: "workout", status: false),
+            ToDo(id: 3, title: "cook", status: false),
+            ToDo(id: 4, title: "Make bed", status: false),
+            ToDo(id: 5, title: "Do homework", status: false),
+            ToDo(id: 6, title: "workout", status: false),
+            ToDo(id: 7, title: "cook", status: false)
+        ]
+        
         view.backgroundColor = .white
         setUpViews()
     }
@@ -122,8 +140,13 @@ extension ListVC: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: CELL_ID, for: indexPath) as! GDListCell
         //let cell = tableView.cellForRow(at: indexPath) as! UITableViewCell
-        cell.textLabel?.text = self.listData[indexPath.row]
+//        cell.textLabel?.text = self.listData[indexPath.row].title
+        cell.toDo = self.listData[indexPath.row]
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 50
     }
     
     
