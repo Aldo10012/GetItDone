@@ -24,7 +24,7 @@ class ListVC: UIViewController, GDHeaderDelegate  {
         super.viewDidLoad()
         
         listData = [
-            ToDo(id: 0, title: "Make bed", status: false),
+            ToDo(id: 0, title: "Make bed", status: true),
             ToDo(id: 1, title: "Do homework", status: false),
             ToDo(id: 2, title: "workout", status: false),
             ToDo(id: 3, title: "cook", status: false),

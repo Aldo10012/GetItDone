@@ -15,10 +15,8 @@ class GDListCell: UITableViewCell{
     var toDo: ToDo? {
         didSet{
             if let toDo = toDo {
-                print(toDo.id)
-                print(toDo.title)
                 print(toDo.status)
-                
+                self.box.toggled = toDo.status
                 self.titleLabel.text = toDo.title
             }
         }
