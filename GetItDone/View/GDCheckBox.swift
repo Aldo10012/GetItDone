@@ -13,8 +13,10 @@ class GDCheckBox: UIButton {
             if let toggled = toggled {
                 if toggled {
                     self.backgroundColor = .green
+                    setImage(UIImage(named: "done-icon"), for: .normal)
                 }else{
                     self.backgroundColor = .white
+                    setImage(UIImage(), for: .normal)
                 }
                 
             }
