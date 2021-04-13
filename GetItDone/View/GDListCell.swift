@@ -34,7 +34,7 @@ class GDListCell: UITableViewCell{
     }
     
     func setupViews(){
-        addSubview(box)
+        self.contentView.addSubview(box)
         NSLayoutConstraint.activate([
             box.leftAnchor.constraint(equalTo: leftAnchor, constant: 0),
             box.centerYAnchor.constraint(equalTo: centerYAnchor),
