@@ -25,21 +25,11 @@ class ListVC: UIViewController, GDHeaderDelegate  {
         
         listData = [
             ToDo(id: 0, title: "Make bed", status: true),
-            ToDo(id: 1, title: "Do homework", status: false),
-            ToDo(id: 2, title: "workout", status: false),
+            ToDo(id: 1, title: "Do homework", status: true),
+            ToDo(id: 2, title: "workout", status: true),
             ToDo(id: 3, title: "cook", status: false),
-            ToDo(id: 4, title: "Make bed", status: false),
-            ToDo(id: 5, title: "Do homework", status: false),
-            ToDo(id: 6, title: "workout", status: false),
-            ToDo(id: 7, title: "cook", status: false),
-            ToDo(id: 0, title: "Make bed", status: false),
-            ToDo(id: 1, title: "Do homework", status: false),
-            ToDo(id: 2, title: "workout", status: false),
-            ToDo(id: 3, title: "cook", status: false),
-            ToDo(id: 4, title: "Make bed", status: false),
-            ToDo(id: 5, title: "Do homework", status: false),
-            ToDo(id: 6, title: "workout", status: false),
-            ToDo(id: 7, title: "cook", status: false)
+            ToDo(id: 4, title: "become president", status: false),
+            ToDo(id: 5, title: "buy a house", status: false)
         ]
         
         view.backgroundColor = .white
