@@ -123,21 +123,44 @@ extension ListVC: GDNewItemDelegate{
 }
 
 extension ListVC: UITableViewDelegate, UITableViewDataSource{
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if section == 0{
+            return "To Do"
+        }
+        return "Done"
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let titleForHeader = GDLabel(title: "", color: .white, size: 20, frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 44))
+        if section == 0{
+            titleForHeader.text = "To Do"
+        }else{
+            titleForHeader.text = "Done"
+        }
+        
+        return titleForHeader
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 38
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.listData.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: CELL_ID, for: indexPath) as! GDListCell
-        //let cell = tableView.cellForRow(at: indexPath) as! UITableViewCell
-//        cell.textLabel?.text = self.listData[indexPath.row].title
         cell.toDo = self.listData[indexPath.row]
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 50
+        return 42
     }
-    
-    
 }
