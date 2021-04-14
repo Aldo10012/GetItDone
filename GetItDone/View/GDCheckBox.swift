@@ -11,12 +11,14 @@ class GDCheckBox: UIButton {
     var toggled: Bool? {
         didSet{
             if let toggled = toggled {
-                if toggled {
-                    self.backgroundColor = .green
-                    setImage(UIImage(named: "done-icon"), for: .normal)
-                }else{
-                    self.backgroundColor = .white
-                    setImage(UIImage(), for: .normal)
+                UIView.animate(withDuration: 0.2) {
+                    if toggled {
+                        self.backgroundColor = .green
+                        self.setImage(UIImage(named: "done-icon"), for: .normal)
+                    }else{
+                        self.backgroundColor = .white
+                        self.setImage(UIImage(), for: .normal)
+                    }
                 }
                 
             }
@@ -27,7 +29,6 @@ class GDCheckBox: UIButton {
         if let toggled = toggled{
             self.toggled = !toggled
         }
-        print("toggling")
     }
     
     override init(frame: CGRect) {
