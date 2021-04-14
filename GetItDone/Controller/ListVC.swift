@@ -28,8 +28,7 @@ class ListVC: UIViewController, GDHeaderDelegate  {
             ToDo(id: 1, title: "Do homework", status: true),
             ToDo(id: 2, title: "workout", status: true),
             ToDo(id: 3, title: "cook", status: false),
-            ToDo(id: 4, title: "become president", status: false),
-            ToDo(id: 5, title: "buy a house", status: false)
+            ToDo(id: 4, title: "become president", status: false)
         ]
         
         view.backgroundColor = .white
@@ -122,7 +121,21 @@ extension ListVC: GDNewItemDelegate{
     }
 }
 
-extension ListVC: UITableViewDelegate, UITableViewDataSource{
+extension ListVC: UITableViewDelegate, UITableViewDataSource, GDListCellDelegate{
+    func toggleToDo(id: Int, status: Bool) {
+        print("tryingto toggle todo in db")
+        print(id, status)
+        let newListData = self.listData.map { (toDo) -> ToDo in
+            if toDo.id == id{
+                var newToDo = toDo
+                newToDo.status = status
+                return newToDo
+            }
+            return toDo
+        }
+        self.listData = newListData
+        self.listTable.reloadData()
+    }
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 2
@@ -151,12 +164,32 @@ extension ListVC: UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.listData.count
+        var count = 0
+        self.listData.forEach { (toDo) in
+            if section == 0 && !toDo.status{
+                count += 1
+            }else if (section == 1 && toDo.status){
+                count += 1
+            }
+        }
+        
+        return count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: CELL_ID, for: indexPath) as! GDListCell
-        cell.toDo = self.listData[indexPath.row]
+        
+        cell.box.delegate = self
+        var itemsForSection:[ToDo] = []
+        self.listData.forEach { (toDo) in
+            if indexPath.section == 0 && !toDo.status{
+                itemsForSection.append(toDo)
+            }else if (indexPath.section == 1 && toDo.status){
+                itemsForSection.append(toDo)
+            }
+        }
+        
+        cell.toDo = itemsForSection[indexPath.row]
         return cell
     }
     

@@ -14,3 +14,7 @@ protocol GDHeaderDelegate {
 protocol GDNewItemDelegate{
     func addItemToList(text:String)
 }
+
+protocol GDListCellDelegate{
+    func toggleToDo(id: Int, status: Bool)
+}
