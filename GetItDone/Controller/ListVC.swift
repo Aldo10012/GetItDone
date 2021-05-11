@@ -84,7 +84,7 @@ class ListVC: UIViewController, GDHeaderDelegate  {
         
         view.addSubview(popup)
         NSLayoutConstraint.activate([
-            popup.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            popup.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 90),
             popup.heightAnchor.constraint(equalToConstant: 100),
             popup.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20),
             popup.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20)
@@ -103,8 +103,15 @@ class ListVC: UIViewController, GDHeaderDelegate  {
         return .lightContent
     }
     
+    var popupLocation:CGFloat = -90
     func openAddItemPopup() {
         print("trying to add item")
+        popup.animateView(transform: CGAffineTransform(translationX: 0, y: popupLocation), duration: 0.3)
+        if popupLocation == -90{
+            popupLocation = 0
+        }else {
+            popupLocation = -90
+        }
     }
 }
 

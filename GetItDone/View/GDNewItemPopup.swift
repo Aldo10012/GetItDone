@@ -16,6 +16,8 @@ class GDNewItemPopup: GDGradient {
     override init(frame: CGRect = .zero, radius: CGFloat = 15){
         super.init(frame: frame, radius: radius)
         self.layer.cornerRadius = radius
+//        self.layer.masksToBounds = true
+        self.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         
         addViews(15)
     }
