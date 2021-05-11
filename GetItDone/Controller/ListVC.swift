@@ -45,8 +45,6 @@ class ListVC: UIViewController, GDHeaderDelegate  {
     @objc func keyboardWillShow(notification: Notification) {
         let keyboardSize = (notification.userInfo![UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue.size
         self.keyboardHeight = keyboardSize.height
-        
-        
 
     }
     
@@ -92,6 +90,10 @@ class ListVC: UIViewController, GDHeaderDelegate  {
         listTable.register(GDListCell.self, forCellReuseIdentifier: CELL_ID)
     }
     
+    override var preferredStatusBarStyle: UIStatusBarStyle{
+        return .lightContent
+    }
+    
     func openAddItemPopup() {
         print("trying to add item")
     }
@@ -106,9 +108,6 @@ extension ListVC: UITextFieldDelegate{
         popup.animateView(transform: CGAffineTransform(translationX: 0, y: 0), duration: 0.6)
         popup.textField.text = ""
     }
-    
-    
-    
 }
 
 extension ListVC: GDNewItemDelegate{
