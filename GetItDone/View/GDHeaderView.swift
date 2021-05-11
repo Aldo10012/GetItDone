@@ -26,6 +26,12 @@ class GDHeaderView: UIView{
         setUpLayout()
     }
     
+    var itemsLeft: Int = 0 {
+        didSet{
+            self.subtitleLabel.text = "\(itemsLeft) Left"
+        }
+    }
+    
     func setUpLayout(){
         addSubview(bg)
         NSLayoutConstraint.activate([

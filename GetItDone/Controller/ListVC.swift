@@ -31,6 +31,8 @@ class ListVC: UIViewController, GDHeaderDelegate  {
             ToDo(id: 4, title: "become president", status: false)
         ]
         
+        self.updateHeaderItemsLeft()
+        
         view.backgroundColor = .white
         setUpViews()
     }
@@ -46,6 +48,13 @@ class ListVC: UIViewController, GDHeaderDelegate  {
         let keyboardSize = (notification.userInfo![UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue.size
         self.keyboardHeight = keyboardSize.height
 
+    }
+    
+    func updateHeaderItemsLeft() {
+        header.itemsLeft = 0
+        self.listData.forEach { (ToDo) in
+            if !ToDo.status{header.itemsLeft += 1}
+        }
     }
     
     func setUpViews(){
@@ -134,6 +143,7 @@ extension ListVC: UITableViewDelegate, UITableViewDataSource, GDListCellDelegate
         }
         self.listData = newListData
         self.listTable.reloadData()
+        self.updateHeaderItemsLeft()
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
