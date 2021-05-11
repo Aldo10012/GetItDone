@@ -18,8 +18,21 @@ class GDNewItemPopup: GDGradient {
         self.layer.cornerRadius = radius
 //        self.layer.masksToBounds = true
         self.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+        self.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.animatePopup)))
         
         addViews(15)
+    }
+    
+    var popupLocation:CGFloat = -90
+    @objc func animatePopup() {
+        print("trying to add item")
+        self.animateView(transform: CGAffineTransform(translationX: 0, y: popupLocation), duration: 0.3)
+        if popupLocation == -90{
+            popupLocation = 0
+        }else {
+            textField.resignFirstResponder()
+            popupLocation = -90
+        }
     }
     
     func addViews(_ inset: CGFloat){
@@ -52,7 +65,8 @@ class GDNewItemPopup: GDGradient {
     }
     
     @objc func handleCancel(){
-        textField.resignFirstResponder()
+//        textField.resignFirstResponder()
+        self.animatePopup()
     }
     
     @objc func handleAdd(){

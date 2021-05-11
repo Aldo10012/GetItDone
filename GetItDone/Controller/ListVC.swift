@@ -103,21 +103,15 @@ class ListVC: UIViewController, GDHeaderDelegate  {
         return .lightContent
     }
     
-    var popupLocation:CGFloat = -90
     func openAddItemPopup() {
         print("trying to add item")
-        popup.animateView(transform: CGAffineTransform(translationX: 0, y: popupLocation), duration: 0.3)
-        if popupLocation == -90{
-            popupLocation = 0
-        }else {
-            popupLocation = -90
-        }
+        popup.animatePopup()
     }
 }
 
 extension ListVC: UITextFieldDelegate{
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        popup.animateView(transform: CGAffineTransform(translationX: 0, y: -keyboardHeight), duration: 0.5)
+        popup.animateView(transform: CGAffineTransform(translationX: 0, y: -keyboardHeight-100), duration: 0.5)
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
@@ -127,12 +121,32 @@ extension ListVC: UITextFieldDelegate{
 }
 
 extension ListVC: GDNewItemDelegate{
+    // runs then + button is clicked
     func addItemToPopup() {
         print("trying to open item popup view")
     }
     
+    func notInList(text:String) -> Bool {
+        var isNotInList = true
+        self.listData.forEach { (toDo) in
+            if toDo.title == text{
+                isNotInList = false
+            }
+        }
+        return isNotInList
+    }
+    
+    // runs when add button is clicked
     func addItemToList(text: String){
         print("text in textfield is: \(text)")
+        if (notInList(text: text)){
+            let newItem = ToDo(id: self.listData.count, title: text, status: false)
+            self.listData.append(newItem)
+            self.listTable.reloadData()
+            self.updateHeaderItemsLeft()
+            self.popup.textField.text = ""
+            //self.popup.animatePopup()
+        }
     }
 }
 
