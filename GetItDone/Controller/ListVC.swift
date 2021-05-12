@@ -234,6 +234,7 @@ extension ListVC: UITableViewDelegate, UITableViewDataSource, GDListCellDelegate
             self.listData.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
+        self.updateHeaderItemsLeft()
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
