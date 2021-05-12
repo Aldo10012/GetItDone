@@ -16,20 +16,26 @@ class ListVC: UIViewController, GDHeaderDelegate  {
     let listTable = GDTableView()
     let CELL_ID = "cell_id"
     
-    var listData: [ToDo] = [ToDo]()
+    var listData: [ToDo] = [
+        ToDo(id: 0, title: "Make bed", status: false),
+        ToDo(id: 1, title: "Do homework", status: false),
+        ToDo(id: 2, title: "workout", status: false),
+        ToDo(id: 3, title: "cook", status: false),
+        ToDo(id: 4, title: "become president", status: false)
+    ]
     
     let tbInset:CGFloat = 25
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        listData = [
-            ToDo(id: 0, title: "Make bed", status: true),
-            ToDo(id: 1, title: "Do homework", status: true),
-            ToDo(id: 2, title: "workout", status: true),
-            ToDo(id: 3, title: "cook", status: false),
-            ToDo(id: 4, title: "become president", status: false)
-        ]
+//        listData = [
+//            ToDo(id: 0, title: "Make bed", status: false),
+//            ToDo(id: 1, title: "Do homework", status: false),
+//            ToDo(id: 2, title: "workout", status: false),
+//            ToDo(id: 3, title: "cook", status: false),
+//            ToDo(id: 4, title: "become president", status: false)
+//        ]
         
         self.updateHeaderItemsLeft()
         
@@ -221,6 +227,13 @@ extension ListVC: UITableViewDelegate, UITableViewDataSource, GDListCellDelegate
         
         cell.toDo = itemsForSection[indexPath.row]
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            self.listData.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
