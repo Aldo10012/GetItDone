@@ -9,6 +9,7 @@ import UIKit
 
 class ListVC: UIViewController, GDHeaderDelegate  {
     
+    // MARK: Properties
     let header = GDHeaderView(title: "Stuff to get done", subtitle: "4 left")
     let popup = GDNewItemPopup()
     var keyboardHeight:CGFloat = 333
@@ -26,6 +27,7 @@ class ListVC: UIViewController, GDHeaderDelegate  {
     
     let tbInset:CGFloat = 25
     
+    // MARK: Life Cycles
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -50,6 +52,7 @@ class ListVC: UIViewController, GDHeaderDelegate  {
         )
     }
     
+    //MARK: Selecters
     @objc func keyboardWillShow(notification: Notification) {
         let keyboardSize = (notification.userInfo![UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue.size
         self.keyboardHeight = keyboardSize.height
@@ -115,6 +118,7 @@ class ListVC: UIViewController, GDHeaderDelegate  {
     }
 }
 
+// MARK: TextField Delegate
 extension ListVC: UITextFieldDelegate{
     func textFieldDidBeginEditing(_ textField: UITextField) {
         popup.animateView(transform: CGAffineTransform(translationX: 0, y: -keyboardHeight-100), duration: 0.5)
@@ -126,6 +130,7 @@ extension ListVC: UITextFieldDelegate{
     }
 }
 
+// MARK: CGNewItemDelegate
 extension ListVC: GDNewItemDelegate{
     // runs then + button is clicked
     func addItemToPopup() {
@@ -156,26 +161,9 @@ extension ListVC: GDNewItemDelegate{
     }
 }
 
-extension ListVC: UITableViewDelegate, UITableViewDataSource, GDListCellDelegate{
-    func toggleToDo(id: Int, status: Bool) {
-        print("tryingto toggle todo in db")
-        print(id, status)
-        let newListData = self.listData.map { (toDo) -> ToDo in
-            if toDo.id == id{
-                var newToDo = toDo
-                newToDo.status = status
-                return newToDo
-            }
-            return toDo
-        }
-        self.listData = newListData
-        self.listTable.reloadData()
-        self.updateHeaderItemsLeft()
-    }
+// MARK: TableView delegates
+extension ListVC: UITableViewDelegate, UITableViewDataSource {
     
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
-    }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if section == 0{
@@ -239,5 +227,28 @@ extension ListVC: UITableViewDelegate, UITableViewDataSource, GDListCellDelegate
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 42
+    }
+}
+
+// MARK: GDListCellDelegate
+extension ListVC: GDListCellDelegate {
+    func toggleToDo(id: Int, status: Bool) {
+        print("tryingto toggle todo in db")
+        print(id, status)
+        let newListData = self.listData.map { (toDo) -> ToDo in
+            if toDo.id == id{
+                var newToDo = toDo
+                newToDo.status = status
+                return newToDo
+            }
+            return toDo
+        }
+        self.listData = newListData
+        self.listTable.reloadData()
+        self.updateHeaderItemsLeft()
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
     }
 }
