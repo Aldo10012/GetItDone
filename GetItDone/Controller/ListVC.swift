@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreData
 
 class ListVC: UIViewController, GDHeaderDelegate  {
     
@@ -17,13 +18,9 @@ class ListVC: UIViewController, GDHeaderDelegate  {
     let listTable = GDTableView()
     let CELL_ID = "cell_id"
     
-    var listData: [ToDo] = [
-        ToDo(id: 0, title: "Make bed", status: false),
-        ToDo(id: 1, title: "Do homework", status: false),
-        ToDo(id: 2, title: "workout", status: false),
-        ToDo(id: 3, title: "cook", status: false),
-        ToDo(id: 4, title: "become president", status: false)
-    ]
+    let myData = CoreDataManager.shared
+    
+    var listData = [ToDo]()
     
     let tbInset:CGFloat = 25
     
@@ -43,6 +40,7 @@ class ListVC: UIViewController, GDHeaderDelegate  {
         
         view.backgroundColor = .white
         setUpViews()
+        fetchToDoList()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -151,13 +149,29 @@ extension ListVC: GDNewItemDelegate{
     func addItemToList(text: String){
         print("text in textfield is: \(text)")
         if (notInList(text: text)){
-            let newItem = ToDo(id: self.listData.count, title: text, status: false)
-            self.listData.append(newItem)
-            self.listTable.reloadData()
+//            let newItem = ToDo(id: self.listData.count, title: text, status: false)
+//            let newItem = ToDo(context: myData.managedContext)
+//            newItem.title = text
+//            newItem.status = false
+            
+            myData.createNewTodo(title: text, status: false)
+            
+            fetchToDoList()
+            
             self.updateHeaderItemsLeft()
             self.popup.textField.text = ""
             //self.popup.animatePopup()
         }
+    }
+    
+    func fetchToDoList() {
+        myData.getTodoList(andSaveToArray: &listData)
+        print(listData)
+        
+        DispatchQueue.main.async {
+            self.listTable.reloadData()
+        }
+        
     }
 }
 
@@ -219,8 +233,11 @@ extension ListVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
+            let object = listData[indexPath.row]
             self.listData.remove(at: indexPath.row)
+            myData.deleteTodoItem(object)
             tableView.deleteRows(at: [indexPath], with: .fade)
+            
         }
         self.updateHeaderItemsLeft()
     }
@@ -236,11 +253,11 @@ extension ListVC: GDListCellDelegate {
         print("tryingto toggle todo in db")
         print(id, status)
         let newListData = self.listData.map { (toDo) -> ToDo in
-            if toDo.id == id{
-                var newToDo = toDo
-                newToDo.status = status
-                return newToDo
-            }
+//            if toDo.id == id{
+//                var newToDo = toDo
+//                newToDo.status = status
+//                return newToDo
+//            }
             return toDo
         }
         self.listData = newListData

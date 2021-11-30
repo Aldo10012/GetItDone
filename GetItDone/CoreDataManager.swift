@@ -19,22 +19,14 @@ struct CoreDataManager {
     
     
     // MARK: Create new Todo
-    func createNewTodo(id: String, title: String, status: Bool, useArray entityArray: inout [NSManagedObject]) {
-            
-        // point to Todo entity
-        let entity = NSEntityDescription.entity(forEntityName: EntityName.todo.rawValue, in: managedContext)!
+    func createNewTodo(title: String, status: Bool) {
         
-        // create new todo
-        let todo = NSManagedObject(entity: entity, insertInto: managedContext)
-        
-        // set todo items
-        todo.setValue(id,     forKey: "id")
-        todo.setValue(title,  forKey: "title")
-        todo.setValue(status, forKey: "status")
+        let todoItem = ToDo(context: managedContext)
+        todoItem.title = title
+        todoItem.status = status
         
         do { //Save context and add to array
             try managedContext.save()
-            entityArray.append(todo)
         } catch let error as NSError {
             print("Could not save. \(error), \(error.userInfo)")
         }
@@ -42,13 +34,14 @@ struct CoreDataManager {
     
     
     // MARK: Get todo list
-    func getTodoList(andSaveToArray entityArray: inout [NSManagedObject]) {
+    func getTodoList(andSaveToArray entityArray: inout [ToDo]) {
         
         // Prepare fetchRequest
-        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: EntityName.todo.rawValue)
-        
+        let fetchRequest = ToDo.fetchRequest()
+                
         //Get saved data
         do {
+            try managedContext.fetch(fetchRequest)
             entityArray = try managedContext.fetch(fetchRequest)
         } catch let error as NSError {
             print("Could not fetch. \(error), \(error.userInfo)")
@@ -60,7 +53,15 @@ struct CoreDataManager {
     
     
     // Delete todo item
-    
+    func deleteTodoItem(_ todo: ToDo) {
+        do {            
+            try managedContext.delete(todo)
+            
+            try managedContext.save()
+        } catch let error as NSError {
+            print("Could not delete. \(error), \(error.userInfo)")
+        }
+    }
     
 }
 
