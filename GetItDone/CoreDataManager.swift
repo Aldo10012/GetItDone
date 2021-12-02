@@ -50,7 +50,13 @@ struct CoreDataManager {
     
     
     // Update todo item
-    
+    func toggleTodoItem(_ todo: ToDo) {
+        todo.status.toggle()
+        do {
+            try managedContext.save()
+        }
+        catch {}
+    }
     
     // Delete todo item
     func deleteTodoItem(_ todo: ToDo) {

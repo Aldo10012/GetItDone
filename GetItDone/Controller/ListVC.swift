@@ -217,7 +217,7 @@ extension ListVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: CELL_ID, for: indexPath) as! GDListCell
         
-        cell.box.delegate = self
+        cell.delegate = self
         var itemsForSection:[ToDo] = []
         self.listData.forEach { (toDo) in
             if indexPath.section == 0 && !toDo.status{
@@ -227,7 +227,7 @@ extension ListVC: UITableViewDelegate, UITableViewDataSource {
             }
         }
         
-        cell.toDo = itemsForSection[indexPath.row]
+        cell.todo = itemsForSection[indexPath.row]
         return cell
     }
     
@@ -249,9 +249,12 @@ extension ListVC: UITableViewDelegate, UITableViewDataSource {
 
 // MARK: GDListCellDelegate
 extension ListVC: GDListCellDelegate {
-    func toggleToDo(id: Int, status: Bool) {
+    func toggleToDo(status: Bool) {
         print("tryingto toggle todo in db")
-        print(id, status)
+//        print(id, status)
+        
+        fetchToDoList()
+        
         let newListData = self.listData.map { (toDo) -> ToDo in
 //            if toDo.id == id{
 //                var newToDo = toDo

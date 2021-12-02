@@ -9,7 +9,6 @@ import UIKit
 
 class GDCheckBox: UIButton {
     
-    var delegate: GDListCellDelegate?
     var id: Int?
     
     var toggled: Bool? {
@@ -29,18 +28,9 @@ class GDCheckBox: UIButton {
         }
     }
     
-    @objc func toggleStatus(){
-        if let status = toggled, let delegate = self.delegate, let id = self.id{
-            self.toggled = !status
-            delegate.toggleToDo(id: id, status: !status)
-        }
-    }
-    
     override init(frame: CGRect) {
         super.init(frame: .zero)
         translatesAutoresizingMaskIntoConstraints = false
-        
-        addTarget(self, action: #selector(self.toggleStatus), for: .touchUpInside)
     }
     
     required init?(coder: NSCoder) {
