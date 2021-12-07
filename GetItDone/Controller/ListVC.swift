@@ -222,6 +222,7 @@ extension ListVC: UITableViewDelegate, UITableViewDataSource {
         print(listData[indexPath.row])
         let todo = listData[indexPath.row]
         let vc = DetailVC(todo: todo)
+        vc.modalPresentationStyle = .fullScreen
         self.present(vc, animated: true, completion: nil)
     }
 }
