@@ -33,7 +33,20 @@ class DetailVC: UIViewController {
         view.backgroundColor = .white
 
         // Do any additional setup after loading the view.
-        print(todo)
+        setupViews()
+    }
+    
+    
+    // MARK: - UI Set up
+    func setupViews() {
+        configureNavigationBar(withTitle: "", prefersLargeTitles: false)
+        
+        let v = UILabel()
+        v.text = "hdfjeo"
+        
+        view.addSubview(v)
+        v.centerX(inView: view)
+        v.centerY(inView: view)
     }
     
 

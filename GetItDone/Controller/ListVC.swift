@@ -58,36 +58,20 @@ class ListVC: UIViewController, GDHeaderDelegate  {
     
     func setUpViews(){
         view.addSubview(header)
-        NSLayoutConstraint.activate([
-            header.topAnchor.constraint(equalTo: view.topAnchor),
-            header.heightAnchor.constraint(equalToConstant: 120),
-            header.leftAnchor.constraint(equalTo: view.leftAnchor),
-            header.rightAnchor.constraint(equalTo: view.rightAnchor)
-        ])
+        
+        navigationController?.navigationBar.isHidden = true
+        navigationController?.navigationBar.barStyle = .black
+        
+        header.anchor(top: view.topAnchor, left: view.leftAnchor, right: view.rightAnchor, height: 120)
         
         view.addSubview(bg)
-        NSLayoutConstraint.activate([
-            bg.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20),
-            bg.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20),
-            bg.topAnchor.constraint(equalTo: header.bottomAnchor, constant: 20),
-            bg.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -120)
-        ])
+        bg.anchor(top: header.bottomAnchor, left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor, paddingTop: 20, paddingLeft: 20, paddingBottom: 120, paddingRight: 20)
         
         bg.addSubview(listTable)
-        NSLayoutConstraint.activate([
-            listTable.leftAnchor.constraint(equalTo: bg.leftAnchor, constant: tbInset),
-            listTable.topAnchor.constraint(equalTo: bg.topAnchor, constant: tbInset),
-            listTable.bottomAnchor.constraint(equalTo: bg.bottomAnchor, constant: tbInset * -1),
-            listTable.rightAnchor.constraint(equalTo: bg.rightAnchor, constant: tbInset * -1)
-        ])
+        listTable.anchor(top: bg.topAnchor, left: bg.leftAnchor, bottom: bg.bottomAnchor, right: bg.rightAnchor, paddingTop: tbInset, paddingLeft: tbInset, paddingBottom: tbInset, paddingRight: tbInset)
         
         view.addSubview(popup)
-        NSLayoutConstraint.activate([
-            popup.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 90),
-            popup.heightAnchor.constraint(equalToConstant: 100),
-            popup.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20),
-            popup.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20)
-        ])
+        popup.anchor(left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor, paddingLeft: 20, paddingBottom: -90, paddingRight: 20, height: 100)
         
 
         popup.textField.delegate = self
