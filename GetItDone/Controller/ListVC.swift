@@ -28,14 +28,6 @@ class ListVC: UIViewController, GDHeaderDelegate  {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        listData = [
-//            ToDo(id: 0, title: "Make bed", status: false),
-//            ToDo(id: 1, title: "Do homework", status: false),
-//            ToDo(id: 2, title: "workout", status: false),
-//            ToDo(id: 3, title: "cook", status: false),
-//            ToDo(id: 4, title: "become president", status: false)
-//        ]
-        
         self.updateHeaderItemsLeft()
         
         view.backgroundColor = .white
@@ -149,10 +141,6 @@ extension ListVC: GDNewItemDelegate{
     func addItemToList(text: String){
         print("text in textfield is: \(text)")
         if (notInList(text: text)){
-//            let newItem = ToDo(id: self.listData.count, title: text, status: false)
-//            let newItem = ToDo(context: myData.managedContext)
-//            newItem.title = text
-//            newItem.status = false
             
             myData.createNewTodo(title: text, status: false)
             
@@ -245,6 +233,13 @@ extension ListVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 42
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print(listData[indexPath.row])
+        let todo = listData[indexPath.row]
+        let vc = DetailVC(todo: todo)
+        self.present(vc, animated: true, completion: nil)
+    }
 }
 
 // MARK: GDListCellDelegate
@@ -256,11 +251,6 @@ extension ListVC: GDListCellDelegate {
         fetchToDoList()
         
         let newListData = self.listData.map { (toDo) -> ToDo in
-//            if toDo.id == id{
-//                var newToDo = toDo
-//                newToDo.status = status
-//                return newToDo
-//            }
             return toDo
         }
         self.listData = newListData

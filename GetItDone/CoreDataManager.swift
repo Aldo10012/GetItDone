@@ -18,7 +18,7 @@ struct CoreDataManager {
     let managedContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     
-    // MARK: Create new Todo
+    // MARK: - Create new Todo
     func createNewTodo(title: String, status: Bool) {
         
         let todoItem = ToDo(context: managedContext)
@@ -33,7 +33,7 @@ struct CoreDataManager {
     }
     
     
-    // MARK: Get todo list
+    // MARK: - Get todo list
     func getTodoList(andSaveToArray entityArray: inout [ToDo]) {
         
         // Prepare fetchRequest
@@ -49,7 +49,7 @@ struct CoreDataManager {
     }
     
     
-    // Update todo item
+    // MARK: - Update todo
     func toggleTodoItem(_ todo: ToDo) {
         todo.status.toggle()
         do {
@@ -58,7 +58,7 @@ struct CoreDataManager {
         catch {}
     }
     
-    // Delete todo item
+    // MARK: - Delete todo
     func deleteTodoItem(_ todo: ToDo) {
         do {            
             try managedContext.delete(todo)
