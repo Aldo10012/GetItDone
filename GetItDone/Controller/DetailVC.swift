@@ -13,6 +13,7 @@ class DetailVC: UIViewController {
     // MARK: - Properties
     
     var todo: ToDo
+    var viewModel: DetailViewModel
     
     // navbar
     let navbar = GDGradient()
@@ -27,6 +28,8 @@ class DetailVC: UIViewController {
         return btn
     }()
     
+    let tableView = UITableView()
+    
     // details
     let detailBG = GDGradient(radius: 25)
     
@@ -35,7 +38,11 @@ class DetailVC: UIViewController {
 
     init(todo: ToDo) {
         self.todo = todo
+        self.viewModel = DetailViewModel(todo: todo)
+        print(viewModel)
+        
         super.init(nibName: nil, bundle: nil)
+        
     }
 
     required init?(coder: NSCoder) {
@@ -83,8 +90,77 @@ class DetailVC: UIViewController {
     func setupDetails() {
         view.addSubview(detailBG)
         detailBG.anchor(top: navbar.bottomAnchor, left: view.leftAnchor, bottom: view.safeAreaLayoutGuide.bottomAnchor, right: view.rightAnchor, paddingTop: 30, paddingLeft: 20, paddingBottom: 100, paddingRight: 20)
+        
+        detailBG.addSubview(tableView)
+        tableView.anchor(top: detailBG.topAnchor, left: detailBG.leftAnchor, bottom: detailBG.bottomAnchor, right: detailBG.rightAnchor, paddingTop: 40, paddingLeft: 20, paddingBottom: 40, paddingRight: 20)
+        
+        tableViewSetup()
     }
     
+    // MARK: - Table View
+    func tableViewSetup() {
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "detail")
+    }
 
 
+}
+
+// MARK: - Delegate
+extension DetailVC: UITableViewDelegate, UITableViewDataSource{
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        self.viewModel.tableViewData.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "detail")!
+        cell.textLabel?.textColor = .blueOne
+        cell.imageView?.tintColor = .blueOne
+        
+        let cellData = viewModel.tableViewData[indexPath.row]
+        
+        if let image = cellData["image"] {
+            cell.imageView?.image = UIImage(systemName: image as! String)
+        }
+        
+        if let detail = cellData["detail"] {
+            cell.textLabel!.text = "\(detail)"
+        }
+        
+        
+//        let image = cellData["image"] as? String
+//        let detail = cellData["detail"] as? String
+//        print(cellData)
+        
+//        cell.textLabel!.text = "\(detail)" //?? ""
+//        cell.imageView?.image = UIImage(systemName: image ?? "")
+        
+        
+        
+        return cell
+    }
+    
+    
+}
+
+
+// MARK: - ViewModel
+struct DetailViewModel {
+    let todo: ToDo
+    
+    init(todo: ToDo) {
+        self.todo = todo
+    }
+    
+    var title: String { return todo.title! }
+    var status: Bool { return todo.status }
+    
+    var tableViewData: [[String: Any]] {
+        return [
+            ["image": "textbox",          "detail": title],  // for title cell
+            ["image": "checkmark.circle", "detail": status]  // for status cell
+        ]
+    }
+    
 }
