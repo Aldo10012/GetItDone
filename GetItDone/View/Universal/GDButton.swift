@@ -46,6 +46,13 @@ class GDButton: UIButton {
             
             case ButtonOptions.todoMain:
                 self.todoMainButton()
+            
+            case ButtonOptions.dateSelected:
+                self.dateSelected()
+                
+            case ButtonOptions.dateUnselected:
+                self.dateUnselected()
+        
                 
             default: break
         }
@@ -68,6 +75,23 @@ class GDButton: UIButton {
         self.layer.cornerRadius = self.radius
         self.setHeight(height: 50)
     }
+    
+    func dateSelected() {
+        self.backgroundColor = .blueOne
+        self.setTitle(self.title, for: .normal)
+        self.setTitleColor(.white, for: .normal)
+        self.layer.cornerRadius = 5
+        self.setHeight(height: 35)
+    }
+    
+    func dateUnselected() {
+        self.backgroundColor = .systemGray5
+        self.setTitle(self.title, for: .normal)
+        self.setTitleColor(.black, for: .normal)
+        self.layer.cornerRadius = 5
+        self.setHeight(height: 35)
+    }
+    
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

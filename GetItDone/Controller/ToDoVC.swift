@@ -15,6 +15,8 @@ class ToDoVC: UIViewController {
     var isOnEdit: Bool
     let myData = CoreDataManager.shared
     
+    let timePicker = UIPickerView()
+
     // HEADER
     lazy var header: GDGradient = {
         let v = GDGradient()
@@ -60,6 +62,12 @@ class ToDoVC: UIViewController {
     }()
     
     var mainButton = GDButton(title: "+ Add Todo", type: .todoMain, radius: 15)
+    
+    var todayButton = GDButton(title: "Today", type: .dateSelected)
+    var tomorrowButton = GDButton(title: "Tomorrow", type: .dateUnselected)
+    var selectDateButton = GDButton(title: "Select", type: .dateUnselected)
+    
+    
     
     // padding inset
     let inset: CGFloat = 28
@@ -153,7 +161,7 @@ class ToDoVC: UIViewController {
         
         view.addSubview(body)
         body.anchor(top: header.bottomAnchor, left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor,
-                    paddingTop: 45, paddingLeft: 20, paddingBottom: 200, paddingRight: 20)
+                    paddingTop: 45, paddingLeft: 20, paddingBottom: 250, paddingRight: 20)
         
         let titleLabel = GDLabel(title: "TITLE", size: 18, font: "Raleway-SemiBold")
         body.addSubview(titleLabel)
@@ -172,15 +180,47 @@ class ToDoVC: UIViewController {
         notesTextView.delegate = self
 
         
+        setupButtons()
         
-        // Buttons
+//        setupTimePicker()
+    }
+    
+    func setupButtons() {
+        
+        let stack = UIStackView(arrangedSubviews: [todayButton, tomorrowButton, selectDateButton])
+        stack.axis = .horizontal
+        stack.distribution = .fillEqually
+        stack.spacing = 16
+        
         view.addSubview(mainButton)
         mainButton.anchor(left: view.leftAnchor, bottom: view.safeAreaLayoutGuide.bottomAnchor, right: view.rightAnchor, paddingLeft: 20, paddingBottom: 5, paddingRight: 20)
         mainButton.addTarget(self, action: #selector(handleMainButton), for: .touchUpInside)
         
+        view.addSubview(stack)
+        stack.anchor(left: view.leftAnchor, bottom: mainButton.topAnchor, right: view.rightAnchor, paddingLeft: 20, paddingBottom: 45, paddingRight: 20)
+        
+        todayButton.addTarget(self, action: #selector(buttonsSelected), for: .touchUpInside)
+        tomorrowButton.addTarget(self, action: #selector(buttonsSelected), for: .touchUpInside)
+        selectDateButton.addTarget(self, action: #selector(buttonsSelected), for: .touchUpInside)
+        
+        let whenLabel = GDLabel(title: "When", color: .black, size: 18, font: "Raleway-SemiBold")
+        view.addSubview(whenLabel)
+        whenLabel.anchor(left: view.leftAnchor, bottom: stack.topAnchor, right: view.rightAnchor, paddingLeft: 20, paddingBottom: 20, paddingRight: 20)
         
     }
     
+    func setupTimePicker() {
+        
+    }
+    
+    @objc func buttonsSelected(_ sender: GDButton) {
+        todayButton.dateUnselected()
+        tomorrowButton.dateUnselected()
+        selectDateButton.dateUnselected()
+        sender.dateSelected()
+        
+        print(sender.title)
+    }
     
 
 }
@@ -201,3 +241,5 @@ extension ToDoVC: UITextViewDelegate {
         }
     }
 }
+
+
