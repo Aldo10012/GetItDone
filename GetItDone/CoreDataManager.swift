@@ -25,6 +25,9 @@ struct CoreDataManager {
         todoItem.title = title
         todoItem.status = status
         todoItem.notes = notes
+        
+        let newAlert = Alert(context: managedContext)
+        todoItem.alert = newAlert
         todoItem.alert?.dateAndTime = date
         
         do { //Save context and add to array
