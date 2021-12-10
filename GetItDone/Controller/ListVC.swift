@@ -136,7 +136,7 @@ extension ListVC: GDNewItemDelegate{
         print("text in textfield is: \(text)")
         if (notInList(text: text)){
             
-            myData.createNewTodo(title: text, status: false)
+//            myData.createNewTodo(title: text, status: false)
             
             fetchToDoList()
             

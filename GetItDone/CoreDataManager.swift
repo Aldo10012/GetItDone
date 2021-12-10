@@ -19,12 +19,13 @@ struct CoreDataManager {
     
     
     // MARK: - Create new Todo
-    func createNewTodo(title: String, status: Bool, notes: String = "") {
+    func createNewTodo(title: String, status: Bool, notes: String = "", date: Date) {
         
         let todoItem = ToDo(context: managedContext)
         todoItem.title = title
         todoItem.status = status
         todoItem.notes = notes
+        todoItem.alert?.dateAndTime = date
         
         do { //Save context and add to array
             try managedContext.save()
@@ -59,9 +60,10 @@ struct CoreDataManager {
         catch {}
     }
     
-    func editTodoItem(todo: ToDo, title: String, notes: String) {
+    func editTodoItem(todo: ToDo, title: String, notes: String, date: Date = Date.now) {
         todo.title = title
         todo.notes = notes
+        todo.alert?.dateAndTime = date
         
         do {
             try managedContext.save()

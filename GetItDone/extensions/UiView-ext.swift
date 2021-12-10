@@ -9,9 +9,9 @@ import UIKit
 
 extension UIView {
     func checkIfAutoLayout(){
-        if frame == .zero{
+//        if frame == .zero{
             translatesAutoresizingMaskIntoConstraints = false
-        }
+//        }
     }
     
     func animateView(transform: CGAffineTransform, duration: TimeInterval){
