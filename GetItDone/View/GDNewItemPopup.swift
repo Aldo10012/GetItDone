@@ -39,29 +39,20 @@ class GDNewItemPopup: GDGradient {
         let inset = inset
         
         addSubview(cancle)
-        NSLayoutConstraint.activate([
-            cancle.leftAnchor.constraint(equalTo: leftAnchor , constant: inset),
-            cancle.topAnchor.constraint(equalTo: topAnchor, constant: inset ),
-            cancle.heightAnchor.constraint(equalToConstant: 24),
-        ])
+        cancle.anchor(top: topAnchor, left: leftAnchor, paddingTop: inset, paddingLeft: inset, height: 24)
+
         cancle.addTarget(self, action: #selector(self.handleCancel), for: .touchUpInside)
         
         addSubview(add)
-        NSLayoutConstraint.activate([
-            add.rightAnchor.constraint(equalTo: rightAnchor , constant: (inset * -1)),
-            add.topAnchor.constraint(equalTo: topAnchor, constant: inset ),
-            add.heightAnchor.constraint(equalToConstant: 24),
-        ])
+        add.anchor(top: topAnchor, right: rightAnchor, paddingTop: inset, paddingRight: inset, height: 24)
+        
         add.addTarget(self, action: #selector(self.handleAdd), for: .touchUpInside)
         
         addSubview(textField)
-        NSLayoutConstraint.activate([
-            textField.leftAnchor.constraint(equalTo: leftAnchor, constant: inset),
-            textField.rightAnchor.constraint(equalTo: rightAnchor, constant: inset * -1),
-            textField.topAnchor.constraint(equalTo: cancle.bottomAnchor, constant: 8),
-            textField.heightAnchor.constraint(equalToConstant: 28)
+        textField.anchor(top: cancle.bottomAnchor, left: leftAnchor, right: rightAnchor,
+                         paddingTop: 8, paddingLeft: inset, paddingRight: inset,
+                         height: 28)
         
-        ])
     }
     
     @objc func handleCancel(){

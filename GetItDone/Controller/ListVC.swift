@@ -35,6 +35,13 @@ class ListVC: UIViewController, GDHeaderDelegate  {
         fetchToDoList()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        print("APPEARED")
+        fetchToDoList()
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         NotificationCenter.default.addObserver(self,
             selector: #selector(keyboardWillShow(notification:)),
@@ -88,7 +95,10 @@ class ListVC: UIViewController, GDHeaderDelegate  {
     
     func openAddItemPopup() {
         print("trying to add item")
-        popup.animatePopup()
+//        popup.animatePopup()
+        let vc = ToDoVC()
+        vc.modalPresentationStyle = .fullScreen
+        self.present(vc, animated: true, completion: nil)
     }
 }
 
@@ -221,8 +231,8 @@ extension ListVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print(listData[indexPath.row])
         let todo = listData[indexPath.row]
-        let vc = DetailVC(todo: todo)
-        vc.modalPresentationStyle = .fullScreen
+        let vc = ToDoVC(todo: todo)
+//        vc.modalPresentationStyle = .fullScreen
         self.present(vc, animated: true, completion: nil)
     }
 }

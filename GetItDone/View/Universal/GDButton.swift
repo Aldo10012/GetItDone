@@ -43,6 +43,9 @@ class GDButton: UIButton {
                 
             case ButtonOptions.squareText:
                 break
+            
+            case ButtonOptions.todoMain:
+                self.todoMainButton()
                 
             default: break
         }
@@ -56,6 +59,14 @@ class GDButton: UIButton {
     
     func squareIcon(){
         self.setImage(UIImage(named: "add-icon"), for: .normal)
+    }
+    
+    func todoMainButton() {
+        self.backgroundColor = .blueOne
+        self.setTitle(self.title, for: .normal)
+        self.setTitleColor(.white, for: .normal)
+        self.layer.cornerRadius = self.radius
+        self.setHeight(height: 50)
     }
     
     required init?(coder: NSCoder) {

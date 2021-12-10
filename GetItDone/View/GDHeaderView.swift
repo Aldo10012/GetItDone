@@ -34,34 +34,23 @@ class GDHeaderView: UIView{
     
     func setUpLayout(){
         addSubview(bg)
-        NSLayoutConstraint.activate([
-            bg.leftAnchor.constraint(equalTo: leftAnchor),
-            bg.rightAnchor.constraint(equalTo: rightAnchor),
-            bg.topAnchor.constraint(equalTo: topAnchor),
-            bg.bottomAnchor.constraint(equalTo: bottomAnchor)
-        ])
+        bg.anchor(top: topAnchor, left: leftAnchor, bottom: bottomAnchor, right: rightAnchor)
+        
         
         addSubview(titleLabel)
-        NSLayoutConstraint.activate([
-            titleLabel.leftAnchor.constraint(equalTo: leftAnchor, constant: 28),
-            titleLabel.topAnchor.constraint(equalTo: topAnchor, constant: 60),
-            titleLabel.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.5)
-        ])
+        titleLabel.anchor(top: topAnchor, left: leftAnchor, paddingTop: 60, paddingLeft: 28)
+        titleLabel.setWidth(relativeTo: widthAnchor, multiplier: 0.5)
+        
         
         addSubview(subtitleLabel)
-        NSLayoutConstraint.activate([
-            subtitleLabel.leftAnchor.constraint(equalTo: titleLabel.leftAnchor),
-            subtitleLabel.topAnchor.constraint(equalTo: titleLabel.topAnchor, constant: 20),
-            subtitleLabel.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.5)
-        ])
+        subtitleLabel.anchor(top: titleLabel.topAnchor, left: titleLabel.leftAnchor, paddingTop: 20)
+        subtitleLabel.setWidth(relativeTo: widthAnchor, multiplier: 0.5)
+        
         
         addSubview(addButton)
-        NSLayoutConstraint.activate([
-            addButton.bottomAnchor.constraint(equalTo: subtitleLabel.bottomAnchor, constant: 0),
-            addButton.rightAnchor.constraint(equalTo: rightAnchor, constant: -28 ),
-            addButton.widthAnchor.constraint(equalToConstant: 24),
-            addButton.heightAnchor.constraint(equalToConstant: 24)
-        ])
+        addButton.layer.cornerRadius = 15
+        addButton.anchor(bottom: subtitleLabel.bottomAnchor, right: rightAnchor, paddingBottom: 0, paddingRight: 28, width: 30, height: 30)
+        
         
         addButton.addTarget(self, action: #selector(self.handleAddButton), for: .touchUpInside)
     }

@@ -19,11 +19,12 @@ struct CoreDataManager {
     
     
     // MARK: - Create new Todo
-    func createNewTodo(title: String, status: Bool) {
+    func createNewTodo(title: String, status: Bool, notes: String = "") {
         
         let todoItem = ToDo(context: managedContext)
         todoItem.title = title
         todoItem.status = status
+        todoItem.notes = notes
         
         do { //Save context and add to array
             try managedContext.save()
