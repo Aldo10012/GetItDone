@@ -232,7 +232,7 @@ extension ListVC: UITableViewDelegate, UITableViewDataSource {
         print(listData[indexPath.row])
         let todo = listData[indexPath.row]
         let vc = ToDoVC(todo: todo)
-//        vc.modalPresentationStyle = .fullScreen
+        vc.modalPresentationStyle = .fullScreen
         self.present(vc, animated: true, completion: nil)
     }
 }

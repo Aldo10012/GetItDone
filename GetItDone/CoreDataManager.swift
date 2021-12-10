@@ -59,6 +59,16 @@ struct CoreDataManager {
         catch {}
     }
     
+    func editTodoItem(todo: ToDo, title: String, notes: String) {
+        todo.title = title
+        todo.notes = notes
+        
+        do {
+            try managedContext.save()
+        }
+        catch {}
+    }
+    
     // MARK: - Delete todo
     func deleteTodoItem(_ todo: ToDo) {
         do {            

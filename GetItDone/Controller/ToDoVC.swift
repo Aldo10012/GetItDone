@@ -112,6 +112,16 @@ class ToDoVC: UIViewController {
         switch self.isOnEdit {
         case true:
             print("did edit todo")
+            
+            let title = titleTextField.text!
+            var notes = notesTextView.text!
+            if notes == "Add a note here" { notes = "" }
+            
+            print("title: \(title) ", "notes: \(notes)")
+            
+            myData.editTodoItem(todo: self.todo!, title: title, notes: notes)
+            
+            
         case false:
             print("did add todo")
             
