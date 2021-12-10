@@ -12,7 +12,6 @@ class ListVC: UIViewController, GDHeaderDelegate  {
     
     // MARK: Properties
     let header = GDHeaderView(title: "Stuff to get done", subtitle: "4 left")
-    let popup = GDNewItemPopup()
     var keyboardHeight:CGFloat = 333
     let bg = GDGradient(radius: 25)
     let listTable = GDTableView()
@@ -76,13 +75,7 @@ class ListVC: UIViewController, GDHeaderDelegate  {
         
         bg.addSubview(listTable)
         listTable.anchor(top: bg.topAnchor, left: bg.leftAnchor, bottom: bg.bottomAnchor, right: bg.rightAnchor, paddingTop: tbInset, paddingLeft: tbInset, paddingBottom: tbInset, paddingRight: tbInset)
-        
-        view.addSubview(popup)
-        popup.anchor(left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor, paddingLeft: 20, paddingBottom: -90, paddingRight: 20, height: 100)
-        
 
-        popup.textField.delegate = self
-        popup.delegate = self
         header.delegate = self
         listTable.delegate = self
         listTable.dataSource = self
@@ -102,17 +95,6 @@ class ListVC: UIViewController, GDHeaderDelegate  {
     }
 }
 
-// MARK: TextField Delegate
-extension ListVC: UITextFieldDelegate{
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        popup.animateView(transform: CGAffineTransform(translationX: 0, y: -keyboardHeight-100), duration: 0.5)
-    }
-    
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        popup.animateView(transform: CGAffineTransform(translationX: 0, y: 0), duration: 0.6)
-        popup.textField.text = ""
-    }
-}
 
 // MARK: CGNewItemDelegate
 extension ListVC: GDNewItemDelegate{
@@ -141,7 +123,7 @@ extension ListVC: GDNewItemDelegate{
             fetchToDoList()
             
             self.updateHeaderItemsLeft()
-            self.popup.textField.text = ""
+//            self.popup.textField.text = ""
             //self.popup.animatePopup()
         }
     }
