@@ -102,6 +102,9 @@ class ToDoVC: UIViewController {
         super.viewWillAppear(animated)
     }
     
+    override var preferredStatusBarStyle: UIStatusBarStyle{
+        return .lightContent
+    }
     
     // MARK: Selectors
     @objc func handleBackButton() {
