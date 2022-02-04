@@ -16,25 +16,19 @@ Simply copy this command into your terminal
 ```
 
 ## How to use
-1. download and open app
 
-<img src="images/1.png" width=35%>
-2. Click "Start Winning"
+1. download and open app. Click "Start Winning"
 
-<img src="images/2.png" width=35%>
-3. Now the app is open! You will have an empty screen at first. To add toDo's just start with clicking the white + box on the top right
+2. Now the app is open! You will have an empty screen at first. To add toDo's just start with clicking the white + box on the top right
 
-<img src="images/3.png" width=35%>
-4. A little popup will appear at the bottom of the screen. Click on the text field.
+3. A screen will present modaly. Type your todo title, notes, and select a due date. 
 
-<img src="images/4.png" width=35%>
-5. Type your toDo and press teh add button to add it to your list. Press cancle if you change your mind. 
+4. Congrats, you jsut added your first item. Feel free to add more
 
-<img src="images/5.png" width=35%>
-6. Congrats, you jsut added your first item. Feel free to add more
+5. You can also click on the which check box next to your todo to mark it as done. 
 
-<img src="images/6.png" width=35%>
-7. You can also click on the which check box next to your todo to mark it as done. 
+6. If you tap on a task, you can edit it. 
 
-<img src="images/7.png" width=35%>
-8. If you want to delete a task to make room, just swipe left.
+7. If you want to delete a task to make room, just swipe left.
+
+<img src="images/starter.png" width=32%> <img src="images/empty_list.png" width=32%> <img src="images/add_task.png" width=32%> <img src="images/1_todo.png" width=32%> <img src="images/done_task.png" width=32%> <img src="images/edit_task.png" width=32%> <img src="images/delete_task.png" width=32%>
