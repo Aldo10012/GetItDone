@@ -160,7 +160,7 @@ class ToDoVC: UIViewController {
         
         setupLocalNotification()
         
-        self.dismiss(animated: true, completion: nil)
+        self.dismiss(animated: true, completion: nil)        
     }
     
     // MARK: Helpers
