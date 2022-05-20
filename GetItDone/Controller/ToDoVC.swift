@@ -155,6 +155,7 @@ class ToDoVC: UIViewController {
             print("Title:", title, "Notes:", notes, "Date:", date)
             
             myData.createNewTodo(title: title, status: false, notes: notes, date: date)
+            NotificationCenter.default.post(name: .todoWasAdded, object: nil)
         }
         
         

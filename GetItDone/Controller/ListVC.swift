@@ -32,6 +32,8 @@ class ListVC: UIViewController, GDHeaderDelegate  {
         view.backgroundColor = .white
         setUpViews()
         fetchToDoList()
+        updateHeaderItemsLeft()
+        createObservers()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -92,6 +94,16 @@ class ListVC: UIViewController, GDHeaderDelegate  {
         let vc = ToDoVC()
         vc.modalPresentationStyle = .fullScreen
         self.present(vc, animated: true, completion: nil)
+    }
+    
+    // MARK: Observers
+    func createObservers() {
+        NotificationCenter.default.addObserver(self, selector: #selector(foobar), name: .todoWasAdded, object: nil)
+    }
+    
+    @objc func foobar() {
+        fetchToDoList()
+        updateHeaderItemsLeft()
     }
 }
 

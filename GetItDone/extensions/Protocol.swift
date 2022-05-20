@@ -18,3 +18,9 @@ protocol GDNewItemDelegate{
 protocol GDListCellDelegate{
     func toggleToDo(status: Bool)
 }
+
+//protocol
+
+extension Notification.Name {
+    static let todoWasAdded = Notification.Name(rawValue: "TodoWasAddedKey")
+}
