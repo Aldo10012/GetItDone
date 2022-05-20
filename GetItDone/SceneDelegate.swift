@@ -18,7 +18,19 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
 
         // Create an instance of the main view controller and a navigation controller
-        let vc = WelcomeVC()
+        
+        // if user's first time, present WelcomeVC(),
+        // else presetn ListVC()
+        let store = UserDefaultManager()
+        var vc: UIViewController
+        
+        if store.userIsRegistered {
+            vc = ListVC()
+        } else {
+            vc = WelcomeVC()
+        }
+        
+//        let vc = WelcomeVC()
         //let navigationController = UINavigationController(rootViewController: vc)
 
         // Tell the window to load the navigation controller as it's root view

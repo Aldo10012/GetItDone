@@ -23,6 +23,8 @@ class WelcomeVC: UIViewController {
                 self.nextButton.transform = CGAffineTransform(scaleX: 1, y: 1)
             }) { (_) in
                 //self.present(ListVC(), animated: true, completion: nil)
+                let store = UserDefaultManager()
+                store.setUserAsRegistered()
                 UIApplication.shared.windows.first?.rootViewController = ListVC()
             }
         }

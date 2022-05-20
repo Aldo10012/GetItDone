@@ -32,6 +32,7 @@
 		63DE42E926110A8B006E3F58 /* GDGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DE42E826110A8B006E3F58 /* GDGradient.swift */; };
 		63DE42ED26110E44006E3F58 /* UIColor-ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DE42EC26110E44006E3F58 /* UIColor-ext.swift */; };
 		63F8BBDC274ECFDF003FBC8A /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F8BBDB274ECFDF003FBC8A /* CoreDataManager.swift */; };
+		63FC1304283732FF0023AF4D /* UserDefaultManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FC1303283732FF0023AF4D /* UserDefaultManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +63,7 @@
 		63DE42E826110A8B006E3F58 /* GDGradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GDGradient.swift; sourceTree = "<group>"; };
 		63DE42EC26110E44006E3F58 /* UIColor-ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor-ext.swift"; sourceTree = "<group>"; };
 		63F8BBDB274ECFDF003FBC8A /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		63FC1303283732FF0023AF4D /* UserDefaultManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,6 +170,7 @@
 				634E206F261281BB00AA8B08 /* Protocol.swift */,
 				6366FA4B26150A7600DBC179 /* UiView-ext.swift */,
 				63ADA682275EE34F004C9691 /* UIViewController-ext.swift */,
+				63FC1303283732FF0023AF4D /* UserDefaultManager.swift */,
 			);
 			path = extensions;
 			sourceTree = "<group>";
@@ -247,6 +250,7 @@
 				6366FA4C26150A7600DBC179 /* UiView-ext.swift in Sources */,
 				63DE42E926110A8B006E3F58 /* GDGradient.swift in Sources */,
 				63C56330276339FB00B3213E /* ToDoVC.swift in Sources */,
+				63FC1304283732FF0023AF4D /* UserDefaultManager.swift in Sources */,
 				63DE42ED26110E44006E3F58 /* UIColor-ext.swift in Sources */,
 				634A44AB261BAF2800F142BA /* GDListCell.swift in Sources */,
 				631DEDF52611518A004247F7 /* ListVC.swift in Sources */,
